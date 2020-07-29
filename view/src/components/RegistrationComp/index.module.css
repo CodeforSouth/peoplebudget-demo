@@ -1,0 +1,146 @@
+/* Extra small devices (phones, 600px and down) */
+@media screen and (min-width: 300px) {
+    .nav {
+        grid-column: 1/4;
+        padding-bottom: 1rem;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 15fr 1fr;
+        grid-column: 2/ 3;
+        padding-bottom: 3rem;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 100%;
+        border-radius: 4em;
+        border-style: solid;
+        border-width: thick;
+        border-color: rgb(08, 46, 52, 0.6);
+        box-shadow: 0px 10px 10px 0px rgb(218, 218, 218);
+        grid-column: 2/3;
+    }
+
+    .compContainer {
+        display: grid;
+        margin: 3rem 2rem;
+        grid-template-rows: 3.5rem 2rem 3rem 4.5rem 4fr;
+        grid-template-columns: 1fr 1fr 7fr 2fr;
+        row-gap: 0.8rem;
+    }
+
+    .welcome {
+        text-transform: capitalize;
+        grid-column: 2/ 5;
+    }
+
+    .linkedinSignIn {
+        grid-column: 3/4;
+        text-transform: capitalize;
+    }
+
+    .lineContainer {
+        display: grid;
+        justify-self: center;
+        grid-column: 3/4;
+    }
+
+    .hr {
+        height: 1px;
+        width: 10rem;
+        background-color: lightgray;
+        grid-row: 3/4;
+    }
+
+    .or {
+        color: gray;
+        font-weight: bolder;
+        font-size: 1.2em;
+        grid-row: 3/4;
+        padding: 0rem 0.2rem;
+    }
+
+    .inputContainer {
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+        column-gap: 1rem;
+        grid-column: 3/ 4;
+    }
+
+    .input2 {
+        display: grid;
+        row-gap: 1rem;
+        grid-column: 3/4;
+    }
+
+    .signup {
+        display: grid;
+        padding-top: 0.8rem;
+        grid-template-rows: 1fr 1fr;
+        gap: 0.5rem;
+        justify-self: center;
+    }
+
+    .linkText {
+        color: grey;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (min-width: 600px) {
+    .compContainer {
+        margin: 3rem 3rem;
+    }
+
+    .hr {
+        width: 14.5rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    .nav {
+        grid-column: 1/4;
+        padding-bottom: 1.5rem;
+    }
+
+    .container {
+        padding-bottom: 4rem;
+    }
+
+    .wrapper {
+        grid-template-columns: 50% 50%;
+    }
+
+    .imageContainer {
+        margin: -0.3rem;
+        overflow: hidden;
+        background-image: url('../../AirlinesArena.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 4em;
+        mix-blend-mode: multiply;
+    }
+
+    .compContainer {
+        margin: 4rem 0rem;
+        row-gap: 0.7rem;
+    }
+
+    .hr {
+        width: 9.5rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    .compContainer {
+        row-gap: 0.8rem;
+    }
+
+    .hr {
+        width: 13rem;
+    }
+}

@@ -1,0 +1,90 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.map {
+    grid-column: 1;
+    border: 3px solid orange;
+    box-sizing: border-box;
+    background: url('../../miamiMapBW.png') no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    min-width: 375px;
+}
+
+.table {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2em;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.table > h3 {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+.table > hr:nth-of-type(1) {
+    border-top: 2px solid orange;
+}
+.table > hr:nth-of-type(2) {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* .table > hr:nth-of-type(1),
+hr:nth-of-type(2),
+hr:nth-of-type(3) {
+    color: red;
+} */
+
+.table > div {
+    display: grid;
+    grid-template-columns: auto 10% 10%;
+}
+.table > div > div:not(:first-child) {
+    align-self: baseline;
+}
+.table > div > div:nth-child(1) {
+    padding-left: 1.5em;
+}
+.table > div > div:nth-child(3) {
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 32px solid red;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .map {
+        grid-column: 1;
+        grid-row: 1;
+        min-height: 375px;
+        min-width: 375px;
+    }
+    .table {
+        grid-column: 1;
+        grid-row: 1;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .table > div {
+        grid-template-columns: 100%;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

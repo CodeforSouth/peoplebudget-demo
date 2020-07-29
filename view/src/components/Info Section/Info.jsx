@@ -10,7 +10,7 @@ const Info = () => {
             <div className="row">
                 {/*LEFT COL*/}
                 <div className="col-6 mx-auto p-0">
-                    <img style={{ width: '100%', height: '100%', border: '3px solid #ee9623' }} src={map}></img>
+                    <img style={{ width: '100%', height: '60vh', border: '3px solid #ee9623' }} src={map}></img>
                 </div>
                 {/*RIGHT COL*/}
                 <div className="col-6 mx-auto d-flex justify-content-center">

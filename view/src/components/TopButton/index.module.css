@@ -1,0 +1,106 @@
+.button {
+    display: grid;
+    width: 35px;
+    height: 35px;
+    border: solid 1px rgb(7, 67, 80);
+    border-radius: 200em;
+    background-color: rgb(7, 67, 80);
+    box-sizing: border-box;
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+    z-index: 1000;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+.button a {
+    justify-self: center;
+    align-self: center;
+}
+.triangleUp {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid rgb(238, 150, 35, 1);
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .button {
+        width: 30px;
+        height: 30px;
+    }
+    .triangleUp {
+        border-left: 6px solid transparent !important;
+        border-right: 6px solid transparent !important;
+        border-bottom: 8px solid rgb(238, 150, 35, 1) !important;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .button {
+        width: 35px;
+        height: 35px;
+    }
+    .triangleUp {
+        border-left: 6px solid transparent !important;
+        border-right: 6px solid transparent !important;
+        border-bottom: 8px solid rgb(238, 150, 35, 1) !important;
+    }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .button {
+        width: 35px;
+        height: 35px;
+    }
+    .triangleUp {
+        border-left: 6px solid transparent !important;
+        border-right: 6px solid transparent !important;
+        border-bottom: 8px solid rgb(238, 150, 35, 1) !important;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .button {
+        width: 35;
+        height: 35;
+    }
+    .triangleUp {
+        border-left: 8px solid transparent !important;
+        border-right: 8px solid transparent !important;
+        border-bottom: 10px solid rgb(238, 150, 35, 1) !important;
+    }
+}
+/*Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px) {
+    .button {
+        width: 35;
+        height: 35;
+    }
+    .triangleUp {
+        border-left: 8px solid transparent !important;
+        border-right: 8px solid transparent !important;
+        border-bottom: 10px solid rgb(238, 150, 35, 1) !important;
+    }
+}
+@media only screen and (min-width: 1900px) {
+    .button {
+        width: 75px;
+        height: 75px;
+    }
+    .triangleUp {
+        border-left: 14px solid transparent !important;
+        border-right: 14px solid transparent !important;
+        border-bottom: 18px solid rgb(238, 150, 35, 1) !important;
+    }
+}
+@media only screen and (min-width: 3800px) {
+    .button {
+        width: 135px;
+        height: 135px;
+    }
+    .triangleUp {
+        border-left: 22px solid transparent !important;
+        border-right: 22px solid transparent !important;
+        border-bottom: 26px solid rgb(238, 150, 35, 1) !important;
+    }
+}

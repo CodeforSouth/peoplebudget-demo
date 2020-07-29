@@ -1,0 +1,85 @@
+.profile{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows:  repeat(2, 1fr);
+    justify-content: center;
+    padding: 0 2em;
+    
+}
+
+.profileImg {
+    align-self: center;
+    justify-self: center;
+    border-radius: 10em ;
+    width: 11vh;
+}
+
+.profileName{
+    padding-top: 1vh;
+    text-align: center;
+    color:#DCDCDC;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px){
+    .profileName {
+        font-size: 0.7em;
+    }
+    .profileImg {
+        width: 6vh;
+    }
+    
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .profileName {
+        font-size: 0.75em;
+    }
+    .profileImg {
+        width: 7vh;
+    }
+    
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .profileName {
+        font-size: 1.1em;
+    }
+    .profileImg {
+        width: 8vh;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px){
+    .profileName {
+        font-size: 1em;
+    }
+    .profileImg {
+        width: 7vh;
+    }
+
+} 
+/*Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px){
+    .profileName {
+        font-size: 1em;
+    }
+    .profileImg {
+        width: 11vh;
+    }
+}
+@media only screen and (min-width: 1900px){
+    .profileName {
+        font-size: 1.9em;
+    }
+    .profileImg {
+        width: 11vh;
+    }
+}
+@media only screen and (min-width: 3800px){
+    .profileName {
+        font-size: 4em;
+    }
+    .profileImg {
+        width: 15vh;
+    }
+}

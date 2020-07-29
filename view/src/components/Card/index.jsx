@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({
     children,
-    radius = '0',
+    radius = '2em',
     width = 'fit-content',
     height = 'fit-content',
     sidePadding = '0',

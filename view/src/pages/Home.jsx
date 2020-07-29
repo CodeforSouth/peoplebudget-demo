@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar/index';
 import GetStarted from '../components/GetStarted';
 import Overview from '../components/Overview';
 import Contributor from '../components/Contributors/index';
-import Info from '../components/Info Section/Info';
-import Footer from '../components/Footer/Footer';
+import Info from '../components/InfoSection/index';
+import Footer from '../components/Footer/index';
 
 const Home = () => {
     const {
@@ -18,7 +18,7 @@ const Home = () => {
             <Overview /> 
             <Contributor /> 
             <Info />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

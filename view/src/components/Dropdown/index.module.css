@@ -14,7 +14,7 @@
         transform: translateY(0px);
     }
     to {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
     }
 }
 .label {
@@ -32,7 +32,7 @@
     font-size: 1.2em;
     font-weight: 400;
     animation: labelAnimation 0.3s;
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .input {
@@ -43,10 +43,10 @@
     border: none;
     outline: none;
     color: rgba(120, 120, 120, 1) /*rgb(238, 150, 35, 1)*/;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1.2em;
-    background-color: rgba(0, 0, 0, 0);
-    caret-color: rgb(120, 120, 120, 1) /*rgb(238, 150, 35, 1)*/;
+    background-color: rgba(255, 196, 0, 0);
+    caret-color: rgb(120, 120, 120) /*rgb(238, 150, 35, 1)*/;
 }
 
 .input::placeholder {
