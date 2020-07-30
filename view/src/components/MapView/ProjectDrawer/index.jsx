@@ -6,6 +6,7 @@ import {
     handleSVG,
     handlePolygon,
     filter,
+    filterContainer,
     filterMenuOpen,
     filterMenuClose,
     list
@@ -32,19 +33,21 @@ const ProjectDrawer = () => {
                             <input type="text" className="form-control" />
                         </form>
                     </div>
-                    <div className={`col-6 ml-auto ${filter}`} onClick={openFilter}>
-                        <div>
-                            <div className="row m-0 p-0">
-                                <div className="col m-0 p-0">Sort By: {filterText}</div>
-                                <div className="col m-0 p-0">
+                    <div className="col-6 ml-auto mr-0 p-0 border">
+                        <div className={`${filterContainer}`} onClick={openFilter}>
+                            <div className={`${filter}`}>
+                                <div>
+                                    Sort By: {filterText}
                                     <span className="material-icons">filter_alt</span>
                                 </div>
+                                <div
+                                    className={`${isFilterOpen ? filterMenuOpen : filterMenuClose}`}
+                                >
+                                    <div>option a</div>
+                                    <div>option b</div>
+                                    <div>option c</div>
+                                </div>
                             </div>
-                        </div>
-                        <div className={`${isFilterOpen ? filterMenuOpen : filterMenuClose}`}>
-                            <div>option a</div>
-                            <div>option b</div>
-                            <div>optionc</div>
                         </div>
                     </div>
                     <div className={`col-12 border ${list}`}>
