@@ -7,7 +7,7 @@
     grid-column: 1;
     border: 3px solid orange;
     box-sizing: border-box;
-    background: url('../../miamiMapBW.png') no-repeat;
+    background: url('/view/src/media/images/miamiMapBW.png') no-repeat;
     background-size: cover;
     min-height: 400px;
     min-width: 375px;
