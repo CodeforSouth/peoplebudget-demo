@@ -8,7 +8,7 @@ const MapView = () => {
         actions: { getMenus }
     } = useContext(Context);
     return (
-        <main className="container-fluid">
+        <main className="container-fluid m-0 p-0">
             <Navbar options={getMenus()} />
             <MapViewComp />
         </main>

@@ -1,11 +1,12 @@
 import React from 'react';
 import Map from '../Map/index';
 import Marker from '../Map/Marker/index';
+import { container } from './index.module.css';
 import ProjectDrawer from '../MapView/ProjectDrawer/index';
 const MapView = () => {
     return (
-        <div className="row">
-            <div className="col-12">
+        <div className={`${container}`}>
+            <div>
                 <Map>
                     {/* <Marker
                         lat={25.77}
@@ -21,7 +22,9 @@ const MapView = () => {
                     </Marker> */}
                 </Map>
             </div>
-            <ProjectDrawer />
+            <div>
+                <ProjectDrawer />
+            </div>
         </div>
     );
 };

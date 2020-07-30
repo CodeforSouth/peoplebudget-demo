@@ -1,4 +1,4 @@
-@keyframes tray-slide {
+@keyframes tray-slide-in {
     from {
         right: -50%;
     }
@@ -6,12 +6,33 @@
         right: -0%;
     }
 }
+@keyframes tray-slide-out {
+    from {
+        right: -0%;
+    }
+    to {
+        right: -50%;
+    }
+}
+
+.tray:parent {
+    position: relative;
+}
 
 .tray {
-    right: -0%;
     height: 100%;
     width: 50%;
-    /* animation: tray-slide 1s; */
+    z-index: 10;
+    position: absolute;
+}
+
+.trayIn {
+    animation: tray-slide-in 1s;
+    right: -0%;
+}
+.trayOut {
+    animation: tray-slide-out 1s;
+    right: -50%;
 }
 
 .container {
@@ -30,36 +51,37 @@
 }
 
 .handle {
-    background-color: white;
-    height: 10%;
-    width: 6%;
-    top: 50%;
-    left: -6%;
+    padding-right: 5px;
     position: absolute;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-    box-shadow: -2px 0px 2px 0px rgba(0, 0, 0, 0.6);
-    z-index: 0;
-    min-height: 75px;
-    min-width: 20px;
-}
-.handleSVG {
-    height: 100%;
-    width: 100%;
-}
-
-.handlePolygon {
-    fill: #ee7423;
-    transform: scale(0.4);
-    transform-origin: 20% 40%;
+    background-color: rgba(255, 255, 255, 1);
+    width: 40px;
+    height: 75px;
+    left: -40px;
+    top: 50%;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+    padding: 0.25em 0.25em;
+    box-shadow: -3px 0px 3px 0px rgba(0, 0, 0, 0.6);
+    display: grid;
 }
 
-.filterContainer{
+.handle > div {
+    align-self: center;
+    justify-self: end;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #ee7423;
+    transform: rotate(-90deg) scaleY(2.5) scaleX(4) translateY(-1px);
+}
+
+.filterContainer {
     position: relative;
     height: 2.5em;
     z-index: 100;
 }
-.filter{
+.filter {
     position: absolute;
     width: 100%;
     background-color: #04343e;
@@ -106,7 +128,7 @@
     visibility: visible;
     height: auto;
     padding-bottom: 25px !important;
-    animation: openMenu .5s;
+    animation: openMenu 0.5s;
 }
 
 .filterMenuClose {

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import {
     container,
     tray,
+    trayIn,
+    trayOut,
     handle,
-    handleSVG,
-    handlePolygon,
     filter,
     filterContainer,
     filterMenuOpen,
@@ -13,15 +13,17 @@ import {
 } from './index.module.css';
 const ProjectDrawer = () => {
     const [filterText, setFilterText] = useState('Location');
+
     const [isFilterOpen, setFilterMenu] = useState(false);
     const openFilter = () => setFilterMenu(!isFilterOpen);
+
+    const [isTrayOpen, setTrayMenu] = useState(true);
+    const openTray = () => setTrayMenu(!isTrayOpen);
+
     return (
-        <div className={`${tray}`} style={{ position: 'absolute' }}>
-            <div className={`${handle}`}>
-                <svg className={`${handleSVG}`}>
-                    <polygon points="50,1 1,50 50,100" className={`${handlePolygon}`} />
-                    Sorry, your browser does not support inline SVG.
-                </svg>
+        <div className={`${tray} ${isTrayOpen ? trayOut : trayIn}`}>
+            <div className={`${handle}`} onClick={openTray}>
+                <div></div>
             </div>
             <div className={`${container}`}>
                 <div className="row">
@@ -33,7 +35,7 @@ const ProjectDrawer = () => {
                             <input type="text" className="form-control" />
                         </form>
                     </div>
-                    <div className="col-6 ml-auto mr-0 p-0 border">
+                    <div className="col-6 ml-auto mr-0 p-0">
                         <div className={`${filterContainer}`} onClick={openFilter}>
                             <div className={`${filter}`}>
                                 <div>

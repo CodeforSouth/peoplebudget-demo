@@ -1,0 +1,12 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+.container > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
