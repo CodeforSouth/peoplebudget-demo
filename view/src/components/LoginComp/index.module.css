@@ -2,14 +2,13 @@
 @media screen and (min-width: 300px) {
     .nav {
         grid-column: 1/4;
-        padding-bottom: 1rem;
     }
 
     .container {
         display: grid;
         grid-template-columns: 1fr 15fr 1fr;
+        grid-template-rows: 1fr 5fr 1fr;
         grid-column: 2/ 3;
-        padding-bottom: 3rem;
     }
 
     .wrapper {
@@ -96,11 +95,10 @@
 @media screen and (min-width: 992px) {
     .nav {
         grid-column: 1/4;
-        padding-bottom: 1.5rem;
     }
 
     .container {
-        padding-bottom: 4rem;
+        grid-template-rows: 1fr 7fr 1fr;
     }
 
     .wrapper {
@@ -110,7 +108,7 @@
     .imageContainer {
         margin: -0.3rem;
         overflow: hidden;
-        background-image: url('/view/src/media/images/AirlinesArena.jpg');
+        background-image: url('../../media/images/AirlinesArena.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 4em;
@@ -136,7 +134,29 @@
         row-gap: 0.8rem;
     }
 
+    .container {
+        grid-template-rows: 1fr 7fr 1fr;
+    }
+
     .hr {
         width: 13rem;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+
+    .container {
+        grid-template-rows: 1fr 5fr 1fr;
+    }
+
+    .hr {
+        width: 15rem;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+
+    .container {
+        grid-template-rows: 1fr 3.2fr 1fr;
     }
 }
