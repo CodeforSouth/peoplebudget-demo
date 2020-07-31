@@ -12,10 +12,14 @@ router.post('/', async (req, res, next) => {
         email: { type: 'email', nullable: false },
         roleid: { nullable: false },
         linkedinurl: { nullable: true },
+        budgetitem: { nullable: false, max: 100 },
         image: { nullable: true },
         address1: { nullable: false },
         address2: { nullable: false },
         securityQuestion: { nullable: false },
+        age: { type: 'numeric', nullable: false },
+        income: { type: 'numeric', nullable: true },
+        occupation: { nullable: true, max: 50 },
         fname: { nullable: false, min: 2, max: 15 },
         lname: { nullable: false, min: 2, max: 15 },
         zip: { type: 'numeric', nullable: false },
@@ -31,6 +35,7 @@ router.post('/', async (req, res, next) => {
             email,
             fname,
             lname,
+            age,
             pass,
             recover,
             securityQuestion,
@@ -39,7 +44,10 @@ router.post('/', async (req, res, next) => {
             image,
             address1,
             address2,
-            zip
+            zip,
+            income,
+            occupation,
+            budgetitem
         }
     } = req;
     try {
@@ -50,6 +58,7 @@ router.post('/', async (req, res, next) => {
             email: email,
             lastName: lname,
             firstName: fname,
+            age: age,
             hash: await hash(pass),
             recoveryHash: await hash(recover),
             securityQuestion: securityQuestion,
@@ -58,7 +67,11 @@ router.post('/', async (req, res, next) => {
             address1: address1,
             address2: address2,
             zip: zip,
-            linkedinurl: linkedinurl
+            linkedinurl: linkedinurl,
+            annualIncome: income,
+            occupation: occupation,
+            budgetItem: budgetitem
+
         });
         res.header('Location', `api/v1/user/?id=${newUser.id}`);
         res.statusCode = 201;

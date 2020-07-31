@@ -19,6 +19,10 @@ const user = DB.define('User', {
         type: DataTypes.STRING(15),
         allowNull: false
     },
+    age: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     email: {
         type: DataTypes.STRING(50),
         allowNull: false
@@ -26,6 +30,10 @@ const user = DB.define('User', {
     linkedinurl: {
         type: DataTypes.STRING(100),
         allowNull: true
+    },
+    budgetItem: {
+        type: DataTypes.STRING(100),
+        allowNull: false
     },
     image: {
         type: DataTypes.TEXT,
@@ -47,12 +55,18 @@ const user = DB.define('User', {
         type: DataTypes.TEXT,
         allowNull: false
     },
-
+    annualIncome: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
+    occupation: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+    },
     securityQuestion: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-
     recoveryHash: {
         type: DataTypes.STRING,
         allowNull: false
