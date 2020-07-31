@@ -62,7 +62,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -72,7 +72,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const output = {
@@ -83,14 +83,14 @@ describe('Reply API', () => {
                     firstName: testJson.fname,
                     lastName: testJson.lname,
                     age: testJson.age,
-                    budgetitem: testJson.budgetitem,
+                    budgetItem: testJson.budgetitem,
                     email: testJson.email,
                     linkedinurl: testJson.linkedinurl,
                     image: testJson.image,
                     zip: testJson.zip,
                     address1: testJson.address1,
                     address2: testJson.address2,
-                    income: testJson.income,
+                    annualIncome: testJson.income,
                     occupation: testJson.occupation
                 }
             ],
@@ -108,7 +108,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -118,7 +118,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const output = {
@@ -126,14 +126,14 @@ describe('Reply API', () => {
             firstName: testJson.fname,
             lastName: testJson.lname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             email: testJson.email,
             linkedinurl: testJson.linkedinurl,
             image: testJson.image,
             zip: testJson.zip,
             address1: testJson.address1,
             address2: testJson.address2,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         };
         const { body, statusCode } = await request(app).get(`/api/v1/user?id=${user.id}`);
@@ -148,7 +148,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -158,7 +158,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const testJosnWithNameChanged = { firstName: 'test2' };
@@ -176,7 +176,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -186,7 +186,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const testJosnWithNameChanged = { firstName: 'testJson.fname' };
@@ -206,7 +206,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -216,7 +216,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const { body, statusCode } = await request(app)
@@ -233,7 +233,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -243,7 +243,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const userb = await User.create({
@@ -251,7 +251,7 @@ describe('Reply API', () => {
             lastName: testJson.lname,
             firstName: testJson.fname,
             age: testJson.age,
-            budgetitem: testJson.budgetitem,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -261,7 +261,7 @@ describe('Reply API', () => {
             address2: testJson.address2,
             zip: testJson.zip,
             linkedinurl: testJson.linkedinurl,
-            income: testJson.income,
+            annualIncome: testJson.income,
             occupation: testJson.occupation
         });
         const idArr = [usera.id, userb.id];

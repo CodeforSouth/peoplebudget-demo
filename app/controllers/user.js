@@ -71,7 +71,6 @@ router.post('/', async (req, res, next) => {
             annualIncome: income,
             occupation: occupation,
             budgetItem: budgetitem
-
         });
         res.header('Location', `api/v1/user/?id=${newUser.id}`);
         res.statusCode = 201;
