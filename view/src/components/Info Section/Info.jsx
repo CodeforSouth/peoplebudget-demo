@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '../Card/index';
-import map from '../../miamiMapBW.png';
+import map from '../../Media/Images/miamiMapBW.png';
 import style from './index.module.css';
-import icon from '../../triangleIcon.png';
+import icon from '../../Media/Images/triangleIcon.png';
 
 const Info = () => {
     return (

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const { router: Auth, version: AuthVersion } = require('./Authentication');
 router.use(`/v${AuthVersion}/auth`, Auth);
 const { router: User, version: UserVersion } = require('./user');
