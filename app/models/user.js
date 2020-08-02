@@ -2,7 +2,7 @@ const { DB } = require('../database/database');
 const { DataTypes } = require('sequelize');
 const role = require('./role');
 
-/**
+/** 
  * User mapping.
  * @name user
  * @memberof module:database
@@ -17,10 +17,6 @@ const user = DB.define('User', {
     },
     lastName: {
         type: DataTypes.STRING(15),
-        allowNull: false
-    },
-    age: {
-        type: DataTypes.INTEGER,
         allowNull: false
     },
     email: {
@@ -62,6 +58,10 @@ const user = DB.define('User', {
     occupation: {
         type: DataTypes.STRING(50),
         allowNull: true
+    },
+    age: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     securityQuestion: {
         type: DataTypes.TEXT,

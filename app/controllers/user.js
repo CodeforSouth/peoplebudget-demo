@@ -1,6 +1,6 @@
 const user = require('../models/user');
 const router = require('express').Router();
-const { adminRequired } = require('../middleware/requiredPermissions');
+const { adminRequired } = require('../middleware/requiredPermissions'); 
 const { hash } = require('../helpers/hash');
 const { customValidator } = require('../helpers/validator');
 const { alreadyExists } = require('../helpers/database');

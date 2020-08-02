@@ -44,7 +44,7 @@ describe('Reply API', () => {
         done();
     });
     it("Can will fail to create new user without required field 'pass'", async (done) => {
-        testJosnWithoutPass = { ...testJson };
+        const testJosnWithoutPass = { ...testJson };
         delete testJosnWithoutPass.pass;
         const { body, statusCode } = await request(app)
             .post('/api/v1/user')
@@ -88,6 +88,7 @@ describe('Reply API', () => {
                     linkedinurl: testJson.linkedinurl,
                     image: testJson.image,
                     zip: testJson.zip,
+                    RoleId: testJson.roleid,
                     address1: testJson.address1,
                     address2: testJson.address2,
                     annualIncome: testJson.income,
@@ -131,6 +132,7 @@ describe('Reply API', () => {
             linkedinurl: testJson.linkedinurl,
             image: testJson.image,
             zip: testJson.zip,
+            RoleId: testJson.roleid,
             address1: testJson.address1,
             address2: testJson.address2,
             annualIncome: testJson.income,
