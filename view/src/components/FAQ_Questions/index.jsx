@@ -5,7 +5,7 @@ import { questionsContainer, title, div1, div2, div3, div4, temp } from './index
 const Questions = () => {
     return (
         <body>
-            <section className={`${temp}`}></section>
+            {/* <section className={`${temp}`}></section> */}
             
             <section className={`${questionsContainer}`}>
 
