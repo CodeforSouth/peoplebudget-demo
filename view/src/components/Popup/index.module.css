@@ -6,10 +6,10 @@
     width: 100vw;
     height: 100vh;
     background-color: #000;
-    opacity: .5;
-  }
-  
-  .modal_wrapper {
+    opacity: 0.5;
+}
+
+.modal_wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,30 +19,34 @@
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
-  }
-  
-  .modal {
-    z-index: 100;
+}
+
+.modal {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 20% 40%;
     background: white;
-    position: relative;
     margin: 1.75rem auto;
     border-radius: 3px;
     max-width: 500px;
     padding: 2rem;
-  }
-  
-  .modal_header {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .modal_close_button {
+
+    border-radius: 4em;
+    border-style: solid;
+    border-width: thick;
+    border-color: rgb(08, 46, 52, 0.6);
+    grid-column: 2/3;
+}
+
+.modal_header {
+}
+
+.modal_close_button {
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
     color: #000;
-    opacity: .3;
+    opacity: 0.3;
     cursor: pointer;
     border: none;
-  }
-  
+}
