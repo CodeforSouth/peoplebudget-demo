@@ -5,13 +5,13 @@ import Marker from '../components/Map/Marker/index';
 import Navbar from '../components/Navbar/index';
 import { Projects } from '../components/ProjectsList/index';
 import Popup from '../components/Popup/index';
+import usePopup from '../components/usePopup/index';
 import { Context } from '../store/store';
 
+
 const MapView = () => {
-          const togglePop = () => {
-         setSeen(true);
-         console.log(seen);
-        };
+
+    const {isShowing, toggle} = usePopup();
 
     const {
         actions: { getMenus }
@@ -24,7 +24,10 @@ const MapView = () => {
             <Navbar options={getMenus()} />
             <div className="row">
                 <div className="col-12 mx-auto" style={{ backgroundColor: 'rgba(0,0,0,.1)' }}>
-                
+                <Popup
+        isShowing={isShowing}
+        hide={toggle}
+      />
                     <div className="row">
                         <div className="col-6">
                             {viewList ? (
@@ -53,19 +56,8 @@ const MapView = () => {
                             )}
                         </div>
                         <div className="col-6">
-                            <>
-                            <Projects setViewList={setViewList} />
-                            <div>
-                                <div className="btn" onClick={togglePop}>
-                                    
-                                    <button>New User?</button>
-
-                                </div>
-                                {seen === true ? (
-                                    <Popup toggle={togglePop} />
-                                ) : null}
-                            </div>
-                    </>
+                        
+      <button className="button-default" onClick={toggle}>Show Modal</button>
                         </div>
                     </div>
                 </div>
