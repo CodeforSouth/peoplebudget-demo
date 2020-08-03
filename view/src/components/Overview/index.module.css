@@ -8,7 +8,7 @@
 .picture {
     grid-column: 5/17;
     grid-row: 1/13;
-    background: url('/view/src/media/images/AirlinesArena.jpg') no-repeat;
+    background: url('../../media/images/AirlinesArena.jpg') no-repeat;
     background-size: 100% 100%;
 }
 .card {
