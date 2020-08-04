@@ -62,7 +62,7 @@ const ProjectDrawer = () => {
                     <div className={`col-12 ${list}`}>
                         <div className="row mt-3 mb-3">
                             {[...Array(25)].map((item, idx) => (
-                                <ProjectCard title={`test ${idx}`} views={1000}  />
+                                <ProjectCard title={`test ${idx}`} views={22000} filter={'t'} upVotes={'1'} />
                             ))}
                         </div>
                     </div>

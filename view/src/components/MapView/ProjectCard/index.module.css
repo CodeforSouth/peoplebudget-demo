@@ -1,6 +1,17 @@
 .card {
     border-radius: 2em;
     background-color: white;
-    padding: 0.25em 2em;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, .175);
+    padding: .5em 0;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.175);
+}
+
+.card > div > div:nth-of-type(1){
+font-size: 1em;
+font-weight: 800;
+text-transform: capitalize;
+}
+
+.card > div > div:nth-of-type(2),
+.card > div > div:nth-of-type(4) {
+    text-align: right;
 }
