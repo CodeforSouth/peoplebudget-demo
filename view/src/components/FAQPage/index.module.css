@@ -34,17 +34,13 @@
     background-size: cover;
     display: grid;
     grid-template-rows: 50% 25% 25%;
-    grid-template-columns: 10% 80% 10%;
 }
 .search {
     grid-row: 2 / span 1;
-    grid-column: 2 / span 1;
     display: grid;
+    justify-self: center;
+    width: 80%;
     grid-template-columns: 75% 15% 10%;
-}
-.search input:focus {
-    background-color: khaki;
-    border-radius: 1em;
 }
 .search input {
     font-size: 1.5em;
