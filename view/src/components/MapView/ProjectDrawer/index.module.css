@@ -27,11 +27,11 @@
 }
 
 .trayIn {
-    /* animation: tray-slide-in 1s; */
+    animation: tray-slide-in 1s;
     right: -0%;
 }
 .trayOut {
-    /* animation: tray-slide-out 1s; */
+    animation: tray-slide-out 1s;
     right: -49%;
 }
 
