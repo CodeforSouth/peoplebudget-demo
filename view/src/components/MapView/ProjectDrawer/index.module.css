@@ -1,6 +1,6 @@
 @keyframes tray-slide-in {
     from {
-        right: -50%;
+        right: -49%;
     }
     to {
         right: -0%;
@@ -11,7 +11,7 @@
         right: -0%;
     }
     to {
-        right: -50%;
+        right: -49%;
     }
 }
 
@@ -27,12 +27,12 @@
 }
 
 .trayIn {
-    animation: tray-slide-in 1s;
+    /* animation: tray-slide-in 1s; */
     right: -0%;
 }
 .trayOut {
-    animation: tray-slide-out 1s;
-    right: -50%;
+    /* animation: tray-slide-out 1s; */
+    right: -49%;
 }
 
 .container {
@@ -48,6 +48,10 @@
 
 .container > header {
     padding-top: 2em;
+}
+
+.container > div:first-child >  div > h1 {
+    font-weight: 700;
 }
 
 .handle {
@@ -137,8 +141,42 @@
 }
 
 .list {
-    border-radius: 100px;
+    border-radius: 1.5em;
     background-color: #f4f4f4;
+}
+
+.search {
+    position: relative;
+    height: 100%;
+}
+
+.search > form {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.search > form > input {
+    border-radius: 2em;
+    display: block;
+    height: 80%;
+    margin: 5px;
+    background-color: #f4f4f4;
+    border: none;
+    /* padding-left: 35px; */
+}
+
+.search > form > div {
+    position: absolute;
+    top: 30%;
+    bottom: 10%;
+    left: 7%;
+    color: #ee7423;
+}
+
+.search > form > input:focus + div {
+    visibility: hidden;
+    transition: ease-out .25s;
 }
 
 /* .triangleUp {

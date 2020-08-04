@@ -9,8 +9,10 @@ import {
     filterContainer,
     filterMenuOpen,
     filterMenuClose,
-    list
+    list,
+    search
 } from './index.module.css';
+import ProjectCard from '../ProjectCard/index';
 const ProjectDrawer = () => {
     const [filterText, setFilterText] = useState('Location');
 
@@ -21,21 +23,26 @@ const ProjectDrawer = () => {
     const openTray = () => setTrayMenu(!isTrayOpen);
 
     return (
-        <div className={`${tray} ${isTrayOpen ? trayOut : trayIn}`}>
+        <div className={`${tray} ${isTrayOpen ? trayIn : trayOut}`}>
             <div className={`${handle}`} onClick={openTray}>
                 <div></div>
             </div>
             <div className={`${container}`}>
-                <div className="row">
-                    <div className="col-6 border">
+                <div className="row pt-3 pr-2 pl-2">
+                    <div className="col-6">
                         <h1>Projects</h1>
                     </div>
-                    <div className="col-6 border">
-                        <form action="">
-                            <input type="text" className="form-control" />
-                        </form>
+                    <div className="col-6">
+                        <div className={`${search}`}>
+                            <form>
+                                <input type="text" className="form-control" />
+                                <div>
+                                    <span className="material-icons">search</span>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div className="col-6 ml-auto mr-0 p-0">
+                    <div className="col-5 ml-auto mr-0 mt-4 mb-1 p-0 pr-3">
                         <div className={`${filterContainer}`} onClick={openFilter}>
                             <div className={`${filter}`}>
                                 <div>
@@ -52,9 +59,11 @@ const ProjectDrawer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`col-12 border ${list}`}>
-                        <div className="row">
-                            <div className="col-10">Project</div>
+                    <div className={`col-12 ${list}`}>
+                        <div className="row mt-3 mb-3">
+                            {[...Array(25)].map((item, idx) => (
+                                <ProjectCard title={`test ${idx}`} />
+                            ))}
                         </div>
                     </div>
                 </div>
