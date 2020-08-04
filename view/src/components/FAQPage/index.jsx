@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch,size} from '@fortawesome/free-solid-svg-icons'
 import Style from '../FAQPage/index.module.css';
 
 const SearchBar = () => {
@@ -13,7 +11,9 @@ const SearchBar = () => {
             <div className={Style.image}>
                 <div className={Style.search}>
                     <input type="text" placeholder="Describe your issue..." />
-                    <button className={Style.button} ><FontAwesomeIcon icon={faSearch} size="2x"/> <h5>Search Topics</h5></button>
+                    <button className={Style.button}>
+                         <h5><span class="material-icons">search</span> Search Topics</h5>
+                    </button>
                 </div>
             </div>
         </div>

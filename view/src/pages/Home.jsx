@@ -6,6 +6,7 @@ import Overview from '../components/Overview';
 import Contributor from '../components/Contributors/index';
 import Info from '../components/InfoSection/index';
 import Footer from '../components/Footer/index';
+import SearchBar from '../components/FAQPage';
 
 const Home = () => {
     const {
@@ -14,6 +15,7 @@ const Home = () => {
     return (
         <div className={`p-0 container-fluid`}>
             <Navbar options={getMenus()} />
+            <SearchBar/>
             <GetStarted /> 
             <Overview /> 
             <Contributor /> 
