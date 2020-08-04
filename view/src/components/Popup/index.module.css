@@ -1,8 +1,7 @@
 .modal_overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1040;
     width: 100vw;
     height: 100vh;
     background-color: #000;
@@ -10,43 +9,56 @@
 }
 
 .modal_wrapper {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1050;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    outline: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    
 }
 
 .modal {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 40% 20% 40%;
+    grid-column: 2/3;
+    grid-row: 2/3;
     background: white;
-    margin: 1.75rem auto;
-    border-radius: 3px;
-    max-width: 500px;
-    padding: 2rem;
-
     border-radius: 4em;
     border-style: solid;
     border-width: thick;
-    border-color: rgb(08, 46, 52, 0.6);
-    grid-column: 2/3;
+    border-color: rgb(08, 46, 52, 1);
+    
 }
 
-.modal_header {
+.modal_content {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 2.5fr 2.5fr 1fr;
+    justify-items: center;
+    
 }
 
 .modal_close_button {
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    opacity: 0.3;
-    cursor: pointer;
+    grid-column: 3/span 3;
+    grid-row: 1/2;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: gray;
     border: none;
+    background: rgb(0, 0, 0, 0);
+}
+
+.modal_help {
+    text-transform: capitalize;
+    font-size: 3.4rem;
+    font-weight: 700;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.tour_button{
+    grid-column: 2/3;
+    grid-row: 3/4;
 }
