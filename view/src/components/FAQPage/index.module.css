@@ -69,3 +69,9 @@ h5 {
     font-size: 1.5em;
     color: #633f0f;
 }
+.search input:focus{
+    outline-width: 0;
+}
+.search button:focus{
+    outline-width: 0;
+}
