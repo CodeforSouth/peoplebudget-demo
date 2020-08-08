@@ -37,7 +37,7 @@ describe('Reply API', () => {
     });
     afterEach(prepareDatabase(User));
     it('Can create a new user', async (done) => {
-        const { body, statusCode } = await request(app).post('/api/v1/user').send(testJson);
+        const { body, statusCode } = await request(app).post('/api/v1/user').send(testJson); 
         expect(statusCode).toEqual(201);
         expect(body).toHaveProperty('response');
         expect(body.response).toBe('user created');
