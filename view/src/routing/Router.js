@@ -5,6 +5,7 @@ import Login from '../pages/Login';
 import Profile from '../pages/Profile';
 import MapView from '../pages/MapView';
 import UserRegistration from '../pages/UserRegistration';
+import FAQ from '../pages/FAQ';
 
 const RouterComponent = () => {
     return (
@@ -15,6 +16,7 @@ const RouterComponent = () => {
                 <Route path="/profile" component={Profile} />
                 <Route path="/proposals" component={MapView} />
                 <Route path="/register" component={UserRegistration} />
+                <Route path="/faq" component={FAQ} />
             </Switch>
         </Router>
     );
