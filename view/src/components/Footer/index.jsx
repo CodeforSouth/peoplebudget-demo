@@ -1,5 +1,5 @@
 import React from 'react';
-import { wrapper, gridItems, firstCol, secondCol, thirdCol, fourthCol, Copyright } from './index.module.css';
+import { wrapper, gridItems, firstCol, secondCol, thirdCol, Copyright } from './index.module.css';
 
 const footer = () => {
     return (
@@ -7,32 +7,23 @@ const footer = () => {
             <div className={wrapper}>
                 <div className={gridItems}>
                     <div className={firstCol}>
-                        <h5 className="title">About</h5>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores
-                            possimus expedita ratione! Ab, dicta totam expedita cupiditate
-                            voluptatum, vel.
-                        </p>
-                    </div>
-
-                    <div className={secondCol}>
-                        <h5 className="title">Links</h5>
+                        <h5 className="title">Site Links</h5>
                         <ul>
                             <li className="list-unstyled">
-                                <a href="#">Link 1</a>
+                                <a href="#">Projects</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Link 2</a>
+                                <a href="#">Feed</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Link 3</a>
+                                <a href="#">Proposals</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Link 4</a>
+                                <a href="#">Dashboard</a>
                             </li>
                         </ul>
                     </div>
-                    <div className={thirdCol}>
+                    <div className={secondCol}>
                         <h5 className="title">Connect</h5>
                         <ul>
                             <li className="list-unstyled">
@@ -50,7 +41,7 @@ const footer = () => {
                         </ul>
                     </div>
 
-                    <div className={fourthCol}>
+                    <div className={thirdCol}>
                         <h5 className="title">Contact</h5>
                         <ul>
                             <li className="list-unstyled">
@@ -60,7 +51,7 @@ const footer = () => {
                                 <span>1234 SW 12 St.</span>
                             </li>
                             <li className="list-unstyled">
-                                <span>Miami, FL 33134</span>
+                                <span>Miami, FL 33133</span>
                             </li>
                             <li className="list-unstyled">
                                 <span>(305)123-4567</span>
