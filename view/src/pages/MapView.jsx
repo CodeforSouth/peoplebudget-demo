@@ -11,6 +11,13 @@ import { Context } from '../store/store';
 const MapView = () => {
     const { isShowing, toggle } = usePopup();
 
+    window.onload = () => {
+        if (!('hasPageLoadBefore' in localStorage)) {
+            toggle();
+            localStorage.setItem('hasPageLoadBefore', true);
+        }
+    }
+
     const {
         actions: { getMenus }
     } = useContext(Context);

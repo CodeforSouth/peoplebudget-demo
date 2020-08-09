@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const usePopup = () => {
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState(false);
 
   function toggle() {
     setIsShowing(!isShowing);

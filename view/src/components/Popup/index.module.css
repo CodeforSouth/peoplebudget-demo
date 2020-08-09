@@ -15,7 +15,7 @@
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
     
 }
@@ -28,14 +28,14 @@
     border-radius: 4em;
     border-style: solid;
     border-width: thick;
-    border-color: rgb(08, 46, 52, 1);
+    border-color: darkgray;
     
 }
 
 .modal_content {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr 2.5fr 2.5fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
     justify-items: center;
     
 }
@@ -56,9 +56,4 @@
     font-weight: 700;
     grid-column: 2/3;
     grid-row: 2/3;
-}
-
-.tour_button{
-    grid-column: 2/3;
-    grid-row: 3/4;
 }

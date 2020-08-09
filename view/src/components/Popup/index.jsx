@@ -6,8 +6,7 @@ import {
     modal,
     modal_content,
     modal_close_button,
-    modal_help,
-    tour_button
+    modal_help
 } from './index.module.css';
 
 const Popup = ({ isShowing, hide }) =>
@@ -29,9 +28,8 @@ const Popup = ({ isShowing, hide }) =>
                                   <span aria-hidden="true">&times;</span>
                               </button>
                               <div className={modal_help}>
-                                  need help? take the tour
+                                  content
                               </div>
-                              <button className={tour_button}>Video Tour</button>
                           </div>
 
                       </div>
