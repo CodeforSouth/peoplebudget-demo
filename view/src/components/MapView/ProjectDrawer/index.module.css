@@ -27,11 +27,11 @@
 }
 
 .trayIn {
-    animation: tray-slide-in 1s;
+    animation: tray-slide-in .5s;
     right: -0%;
 }
 .trayOut {
-    animation: tray-slide-out 1s;
+    animation: tray-slide-out .5s;
     right: -49%;
 }
 
@@ -45,13 +45,14 @@
     box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.6);
     z-index: 1000;
     overflow-y: scroll;
+    color: #084652;
 }
 
 .container > header {
     padding-top: 2em;
 }
 
-.container > div:first-child >  div > h1 {
+.container > div:first-child > div > h1 {
     font-weight: 700;
 }
 
@@ -78,14 +79,19 @@
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 10px solid #ee7423;
-    transform: rotate(-90deg) scaleY(2.5) scaleX(4) translateY(-1px);
+    transform: rotate(-90deg) scaleY(1.5) scaleX(2.5) translateY(-1px);
 }
 
 .filterContainer {
     position: relative;
-    height: 2.5em;
+    height: 2em;
     z-index: 100;
 }
+
+.filterContainer:hover {
+    cursor: pointer;
+}
+
 .filter {
     position: absolute;
     width: 100%;
@@ -94,6 +100,7 @@
     padding: 0 !important;
     color: white;
     box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.6);
+    font-size: .75em;
 }
 
 .filter > div:first-child {
@@ -102,8 +109,10 @@
 }
 
 .filter > div > span {
+    text-align: right;
     float: right;
     color: #ee7423;
+    font-size: 1.5em;
 }
 
 .filter > div > div {
@@ -144,7 +153,8 @@
 .list {
     border-radius: 1.5em;
     background-color: #f4f4f4;
-    overflow: scroll;
+    overflow: hidden;
+    margin-bottom: 1em;
 }
 
 .search {
@@ -166,7 +176,7 @@
     margin: 5px;
     background-color: #f4f4f4;
     border: none;
-    /* padding-left: 35px; */
+    padding-left: 40px;
 }
 
 .search > form > div {
@@ -179,7 +189,7 @@
 
 .search > form > input:focus + div {
     visibility: hidden;
-    transition: ease-out .25s;
+    transition: ease-out 0.25s;
 }
 
 /* .triangleUp {

@@ -11,7 +11,7 @@ const Map = (props) => {
                     lat: 25.77,
                     lng: -80.22
                 }}
-                defaultZoom={11}
+                defaultZoom={11.5}
             >
                 {props.children}
             </GoogleMapReact>
