@@ -24,6 +24,32 @@ import {
 } from './index.module.css';
 
 const RegistrationComp = () => {
+    const history = useHistory();
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [address1, setAddress1] = useState('');
+    const [address2, setAddress2] = useState('');
+    const [age, setAge] = useState('');
+    const [budgetitem, setBudgetitem] = useState('');
+    const [income, setIncome] = useState('');
+    const [occupation, setOccupation] = useState('');
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+    const {
+        actions: { register },
+        store: { loggedIn }
+    } = useContext(Context);
+
+    const handleClickEvent = async () => {
+        await register(fname, lname, address1, address2, age, budgetitem, email, pass,
+            income, occupation);
+        setPass('')
+    };
+
+    useEffect(() => {
+        if (loggedIn) history.push('/proposals');
+    }, [loggedIn]);
+    
     return (
         <div className={`${container}`}>
             <div className={`${nav}`}>
