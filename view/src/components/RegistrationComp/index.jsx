@@ -34,7 +34,7 @@ const RegistrationComp = () => {
     const [income, setIncome] = useState('');
     const [occupation, setOccupation] = useState('');
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [pass, setPass] = useState(''); 
     const {
         actions: { register },
         store: { loggedIn }
@@ -43,7 +43,16 @@ const RegistrationComp = () => {
     const handleClickEvent = async () => {
         await register(fname, lname, address1, address2, age, budgetitem, email, pass,
             income, occupation);
-        setPass('')
+        setFname('firstName');
+        setLname('lastName');
+        setAddress1('address1');
+        setAddress2('address2');
+        setAge('age');
+        setBudgetitem('budgetItem');
+        setEmail('email');
+        setPass('password');
+        setIncome('income');
+        setOccupation('occupation');
     };
 
     useEffect(() => {

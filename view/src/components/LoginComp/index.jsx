@@ -30,7 +30,8 @@ const LoginComp = () => {
 
     const handleClickEvent = async () => {
         await login(email, pass);
-        setPass('')
+        setEmail('email');
+        setPass('password');
     };
 
     useEffect(() => {
