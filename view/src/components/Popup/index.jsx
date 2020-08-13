@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    modal_overlay,
+    modal_lightbox,
     modal_wrapper,
     modal,
     modal_content,
@@ -13,7 +13,7 @@ const Popup = ({ isShowing, hide }) =>
     isShowing
         ? ReactDOM.createPortal(
               <React.Fragment>
-                  <div className={modal_overlay} />
+                  <div className={modal_lightbox} />
                   <div className={modal_wrapper} aria-modal aria-hidden  role="dialog">
                       <div className={modal}>
 

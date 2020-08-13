@@ -1,19 +1,21 @@
-.modal_overlay {
-    position: absolute;
+.modal_lightbox {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
     background-color: #000;
     opacity: 0.5;
 }
 
 .modal_wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
@@ -34,8 +36,8 @@
 
 .modal_content {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 10% 80% 10%;
     justify-items: center;
     
 }
@@ -43,7 +45,7 @@
 .modal_close_button {
     grid-column: 3/span 3;
     grid-row: 1/2;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: gray;
     border: none;
