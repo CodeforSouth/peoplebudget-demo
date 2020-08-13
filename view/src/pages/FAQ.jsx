@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { Context } from '../store/store';
 import Navbar from '../components/Navbar/index';
 import Questions from '../components/FAQ_Questions/index';
-import Footer from '../components/Footer/index';
 import SearchBar from '../components/FAQPage';
+import Video from '../components/FAQ_Video';
+import Footer from '../components/Footer/index';
 
 const FAQ = () => {
     const {
@@ -14,6 +15,7 @@ const FAQ = () => {
             <Navbar options={getMenus()} />
             <SearchBar/>
             <Questions/>
+            <Video/>
             
             {/* <Footer /> */}
         </div>

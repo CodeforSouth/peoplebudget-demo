@@ -4,7 +4,7 @@ import { questionsContainer, title, div1, div2, div3, div4, temp } from './index
 
 const Questions = () => {
     return (
-        <body>
+        <div>
             {/* <section className={`${temp}`}></section> */}
             
             <section className={`${questionsContainer}`}>
@@ -30,7 +30,7 @@ const Questions = () => {
                 </div>
                 
             </section>
-        </body>
+        </div>
         
     );
 };
