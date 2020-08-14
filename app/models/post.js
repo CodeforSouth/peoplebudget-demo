@@ -27,6 +27,18 @@ const post = DB.define('post', {
     votes: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    datePosted: {
+        type: DataTypes.STRING(20),
+        allowNull: false
+    },
+    comments: {
+        types: DataTypes.JSON,
+        allowNull: false
+    },
+    coords: {
+        type: DataTypes.FLOAT,
+        allowNull: false
     }
 });
 module.exports = post;
