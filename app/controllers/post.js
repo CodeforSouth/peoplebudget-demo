@@ -5,48 +5,51 @@ const { ClientError } = require('../helpers/error');
 const pagination = require('../helpers/pagination');
 const { Client, Status } = require('@googlemaps/google-maps-services-js');
 
+const addressToCoords = async (address) => {
+    let data;
+    try {
+        const client = new Client({});
+        const promiseRes = client.geocode({
+            params: { address: address, key: 'AIzaSyCiefzWgtrz1DRgsbf8bgLqxFZn0LQi60g' }
+        });
+
+        data = await (await promiseRes).data.results;
+    } catch (error) {
+        next(error);
+    } finally {
+        // Check that we get back only one results
+        if (!(data.length > 1)) {
+            return JSON.stringify(data[0].geometry.location);
+        } else {
+            console.warn('WARN', 'More than one results returned');
+        }
+    }
+};
+
 router.post('/', async (req, res, next) => {
     const validationError = customValidator(req.body, {
-        userId: null,
-        body: null,
-        comments: null,
-        coords: null, // Maybe Rename to Address -> format used by the national postal service
-        title: null,
-        tags: null,
-        votes: null
+        userId: { nullable: false },
+        address: { nullable: false },
+        body: { nullable: false },
+        title: { nullable: false },
+        tags: { nullable: false },
+        votes: { nullable: true }
     });
     if (validationError) {
         next(validationError);
         return;
     }
     try {
-        let {
-            body: { body, comments, coords, userId, title, tags, votes }
+        const {
+            body: { address, body, userId, title, tags, votes }
         } = req;
 
-        const addressToCoord = async (address) => {
-            let coords;
-            try {
-                const client = new Client({});
-                const promiseRes = client.geocode({
-                    params: { address: address, key: 'AIzaSyCiefzWgtrz1DRgsbf8bgLqxFZn0LQi60g' }
-                });
+        let coords = await addressToCoords(address);
 
-                coords = await (await promiseRes).data.results[0].geometry.location;
-            } catch (err) {
-                next(err);
-            } finally {
-                return JSON.stringify(coords);
-            }
-        };
-
-        coords = await addressToCoord(coords);
-        console.log('Coord: ', coords);
-
-        // DB does not support added fields yet[comments, coords]
         const newPost = await post.create({
-            userId: userId,
+            UserId: userId, //NOTE: Capital U when using the user.hasMany(Post)
             body: body,
+            coords: coords,
             title: title,
             tags: tags,
             votes: votes
@@ -108,10 +111,11 @@ router.get('/', async (req, res, next) => {
 router.put('/', async (req, res, next) => {
     let result = null;
     const validationError = customValidator(req.body, {
-        id: null,
-        title: null,
-        tags: null,
-        votes: null
+        id: { nullable: false },
+        address: { nullable: true },
+        title: { nullable: true },
+        tags: { nullable: true },
+        votes: { nullable: true }
     });
     if (validationError) {
         next(validationError);
@@ -119,10 +123,14 @@ router.put('/', async (req, res, next) => {
     }
     try {
         const {
-            body: { title, tags, votes }
+            body: { address, title, tags, votes }
         } = req;
+
+        let coords;
+        address ? (coords = await addressToCoords(address)) : (coords = null);
+
         result = await post.update(
-            { title, tags, votes },
+            { coords, comments, title, tags, votes },
             {
                 where: { id: req.body.id }
             }
@@ -164,11 +172,12 @@ router.delete('/', async (req, res, next) => {
 });
 router.post('/create-post', async (req, res, next) => {
     const validationError = customValidator(req.body, {
-        userId: null,
-        body: null,
-        title: null,
-        tags: null,
-        votes: null
+        userId: { nullable: false },
+        address: { nullable: false },
+        body: { nullable: false },
+        title: { nullable: false },
+        tags: { nullable: false },
+        votes: { nullable: true }
     });
     if (validationError) {
         next(validationError);
@@ -176,12 +185,15 @@ router.post('/create-post', async (req, res, next) => {
     }
     try {
         const {
-            body: { userId, body, title, tags, votes }
+            body: { userId, address, body, title, tags, votes }
         } = req;
 
+        let coords = await addressToCoords(address);
+
         const newPost = await post.create({
-            userId: userId,
+            UserId: userId, // Capital U when using the user.hasMany(Post)
             body: body,
+            coords: coords,
             title: title,
             tags: tags,
             votes: votes
