@@ -3,11 +3,14 @@ const router = require('express').Router();
 const { customValidator } = require('../helpers/validator');
 const { ClientError } = require('../helpers/error');
 const pagination = require('../helpers/pagination');
+const { Client, Status } = require('@googlemaps/google-maps-services-js');
 
 router.post('/', async (req, res, next) => {
     const validationError = customValidator(req.body, {
         userId: null,
         body: null,
+        comments: null,
+        coords: null, // Maybe Rename to Address -> format used by the national postal service
         title: null,
         tags: null,
         votes: null
@@ -17,10 +20,58 @@ router.post('/', async (req, res, next) => {
         return;
     }
     try {
-        const {
-            body: { body, userId, title, tags, votes }
-        } = req;
 
+
+
+        let {
+            body: { body, comments, coords, userId, title, tags, votes }
+        } = req; /*
+        const addressToCoords = function (coords) {
+            return new Promise((resolve, reject) => {
+                const client = new Client({});
+                client.geocode(
+                    {
+                        params: { address: coords, key: 'AIzaSyCiefzWgtrz1DRgsbf8bgLqxFZn0LQi60g' }
+                    },
+                    (err, res) => {
+                        if (err) reject(err);
+                        else resolve(res.data.results[0].geometry.location);
+                    }
+                );
+            });
+        };*/
+        /*
+        try {
+            const client = new Client({});
+
+            const response = client.geocode({
+                params: { address: coords, key: 'AIzaSyCiefzWgtrz1DRgsbf8bgLqxFZn0LQi60g' }
+            });
+
+            coords = await response.data.results[0];
+            console.log('Coord: ', resolve.data.results[0]);
+
+            //console.log('Coord: ', address);
+        } catch (error) {
+            next(error);
+        }
+*/
+
+        try {
+            const client = new Client({});
+            const promiseRes = client.geocode({
+                params: { address: coords, key: 'AIzaSyCiefzWgtrz1DRgsbf8bgLqxFZn0LQi60g' }
+            });
+
+            coords = await (await promiseRes).data.results[0].geometry.location;
+        } catch (err) {
+            next(err);
+        } finally {
+            // Log out Geocoded fields
+            console.log('Comment: ', comments);
+            console.log('Coord: ', coords);
+
+            /* DB does not support added fields
         const newPost = await post.create({
             userId: userId,
             body: body,
@@ -28,10 +79,12 @@ router.post('/', async (req, res, next) => {
             tags: tags,
             votes: votes
         });
+*/
 
-        res.header('Location', `api/v1/post/?id=${newPost.id}`);
-        res.statusCode = 201;
-        res.send({ response: 'post created' });
+            res.header('Location', `api/v1/post/?id=${'newPost.id'}`);
+            res.statusCode = 201;
+            res.send({ response: 'post created' });
+        }
     } catch (error) {
         next(error);
     }
