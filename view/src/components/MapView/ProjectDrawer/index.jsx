@@ -17,7 +17,7 @@ import ProjectCard from '../ProjectCard/index';
 const ProjectDrawer = () => {
     const {
         actions: { changeProjectId },
-        store: { selectedProjectId }
+        store: { selectedProjectId, projects }
     } = useContext(Context);
 
     const [searchInput, setSearch] = useState('');
@@ -39,18 +39,19 @@ const ProjectDrawer = () => {
         changeProjectId(index);
     };
     const listProjects = () => {
-        const returnVal = [...Array(25)]
+        const returnVal = projects
             .map((item, idx) => (
                 <ProjectCard
-                    key={`projectcard-${idx}`}
-                    details={selectedProjectId === idx}
-                    title={`test ${idx}`}
+                    key={`projectcard-${item.id}`}
+                    showDetails={selectedProjectId === idx}
+                    details={item.details}
+                    title={item.title}
                     views={22000}
                     filter={'location'}
-                    votes={{ up: 100, down: 100 }}
+                    votes={{ up: item.votes, down: item.votes }}
                     onClick={viewDetails(idx)}
                     back={() => changeProjectId(null)}
-                    contributor={'test'}
+                    contributor={item.author}
                 />
             ))
             .filter((item, idx) => {
@@ -65,7 +66,7 @@ const ProjectDrawer = () => {
                     return true;
                 } else {
                     if (selectedProjectId !== null) changeProjectId(null);
-                    return props.title.includes(searchInput);
+                    return props.title.toLowerCase().includes(searchInput);
                 }
             });
 

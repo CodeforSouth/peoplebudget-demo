@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../components/Navbar/index';
 import MapViewComp from '../components/MapView/index';
 import Popup from '../components/Popup/index';
@@ -9,7 +9,6 @@ const MapView = () => {
     const { isShowing, toggle } = usePopup();
 
     window.onload = () => {
-        console.log('test');
         if (!('hasPageLoadBefore' in localStorage)) {
             toggle();
             localStorage.setItem('hasPageLoadBefore', true);
@@ -19,7 +18,6 @@ const MapView = () => {
     const {
         actions: { getMenus }
     } = useContext(Context);
-    const [viewList, setViewList] = useState(true);
 
     return (
         <main className="container-fluid m-0 p-0">

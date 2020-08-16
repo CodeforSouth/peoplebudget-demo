@@ -14,7 +14,7 @@ const ProjectCard = (props) => {
     };
 
     const showDetails = () => {
-        if (props.details) {
+        if (props.showDetails) {
             return (
                 <div className="row">
                     <div className="col-12">
@@ -30,10 +30,7 @@ const ProjectCard = (props) => {
                                 <div className="row m-1">
                                     <div className="col-12 pl-3 pr-3 pt-1 pb-1">description:</div>
                                     <div className="col-12 p-3">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Dicta eius voluptas, amet ea qui, ut, rem suscipit est
-                                        architecto ipsum consectetur facere! Sequi ratione nulla
-                                        delectus dolore, velit suscipit earum.
+                                        {props.details}
                                     </div>
                                 </div>
                                 <div className="row m-1">
