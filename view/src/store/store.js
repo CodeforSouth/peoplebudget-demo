@@ -46,7 +46,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             menus: [
                 { text: 'home', link: '/', auth: 0 },
-                { text: 'projects', link: '/projects', auth: 0 },
                 { text: 'feed', link: '/feed', auth: 1 },
                 { text: 'proposals', link: '/proposals', auth: 2 },
                 { text: 'dashboard', link: '/dashboard', auth: 3 },
@@ -61,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     votes: 100,
                     avatar: '../../../public/assets/images/project-avatar.jpg',
                     details:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sollicitudin ex. Etiam nec lacus a mauris blandit tempor non id urna. In sollicitudin tortor mi, id lobortis ante tincidunt in. Donec ornare consectetur molestie. Fusce posuere mi ac tellus maximus consectetur. Proin tempus tincidunt porta. Donec eu imperdiet ipsum. Donec ac dictum enim, id convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at ullamcorper mi, a sollicitudin ipsum. Donec non neque non enim fermentum mollis id in turpis.'
+                        'id=1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sollicitudin ex. Etiam nec lacus a mauris blandit tempor non id urna. In sollicitudin tortor mi, id lobortis ante tincidunt in. Donec ornare consectetur molestie. Fusce posuere mi ac tellus maximus consectetur. Proin tempus tincidunt porta. Donec eu imperdiet ipsum. Donec ac dictum enim, id convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at ullamcorper mi, a sollicitudin ipsum. Donec non neque non enim fermentum mollis id in turpis.'
                 },
                 {
                     id: 2,
@@ -71,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     votes: 50,
                     avatar: '../../../public/assets/images/project-avatar.jpg',
                     details:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sollicitudin ex. Etiam nec lacus a mauris blandit tempor non id urna. In sollicitudin tortor mi, id lobortis ante tincidunt in. Donec ornare consectetur molestie. Fusce posuere mi ac tellus maximus consectetur. Proin tempus tincidunt porta. Donec eu imperdiet ipsum. Donec ac dictum enim, id convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at ullamcorper mi, a sollicitudin ipsum. Donec non neque non enim fermentum mollis id in turpis.'
+                        'id=2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sollicitudin ex. Etiam nec lacus a mauris blandit tempor non id urna. In sollicitudin tortor mi, id lobortis ante tincidunt in. Donec ornare consectetur molestie. Fusce posuere mi ac tellus maximus consectetur. Proin tempus tincidunt porta. Donec eu imperdiet ipsum. Donec ac dictum enim, id convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at ullamcorper mi, a sollicitudin ipsum. Donec non neque non enim fermentum mollis id in turpis.'
                 },
                 {
                     id: 3,
@@ -81,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     votes: 20,
                     avatar: '../../../public/assets/images/project-avatar.jpg',
                     details:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sollicitudin ex. Etiam nec lacus a mauris blandit tempor non id urna. In sollicitudin tortor mi, id lobortis ante tincidunt in. Donec ornare consectetur molestie. Fusce posuere mi ac tellus maximus consectetur. Proin tempus tincidunt porta. Donec eu imperdiet ipsum. Donec ac dictum enim, id convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at ullamcorper mi, a sollicitudin ipsum. Donec non neque non enim fermentum mollis id in turpis.'
+                        'id=3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sollicitudin ex. Etiam nec lacus a mauris blandit tempor non id urna. In sollicitudin tortor mi, id lobortis ante tincidunt in. Donec ornare consectetur molestie. Fusce posuere mi ac tellus maximus consectetur. Proin tempus tincidunt porta. Donec eu imperdiet ipsum. Donec ac dictum enim, id convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at ullamcorper mi, a sollicitudin ipsum. Donec non neque non enim fermentum mollis id in turpis.'
                 }
             ],
             selectedProjectId: null,
@@ -98,10 +97,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
             },
             getMenus: () => getStore().menus.filter((menu, index) => getStore().auth >= menu.auth),
-            changeProjectId: (id) => (getStore().selectedProjectId = id),
+            changeProjectId: (id) => (setStore({selectedProjectId: id})),
             getProject: () =>
                 getStore().selectedProjectId
-                    ? getStore().projects.find(elem => elem.id === getStore().selectedProjectId)
+                    ? getStore().projects.find((elem) => elem.id === getStore().selectedProjectId)
                     : null,
             getProjects: () => getStore().projects
         }

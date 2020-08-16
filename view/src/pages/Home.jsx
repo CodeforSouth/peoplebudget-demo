@@ -18,7 +18,7 @@ const Home = () => {
             <Overview /> 
             <Contributor /> 
             <Info />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };
