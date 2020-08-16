@@ -97,7 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
             },
             getMenus: () => getStore().menus.filter((menu, index) => getStore().auth >= menu.auth),
-            changeProjectId: (id) => (getStore().selectedProjectId = id),
+            changeProjectId: (id) => (setStore({selectedProjectId: id})),
             getProject: () =>
                 getStore().selectedProjectId
                     ? getStore().projects.find((elem) => elem.id === getStore().selectedProjectId)
