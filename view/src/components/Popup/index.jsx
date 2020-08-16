@@ -14,9 +14,8 @@ const Popup = ({ isShowing, hide }) =>
         ? ReactDOM.createPortal(
               <React.Fragment>
                   <div className={modal_lightbox} />
-                  <div className={modal_wrapper} aria-modal aria-hidden  role="dialog">
+                  <div className={modal_wrapper} aria-modal aria-hidden role="dialog">
                       <div className={modal}>
-
                           <div className={modal_content}>
                               <button
                                   type="button"
@@ -27,11 +26,8 @@ const Popup = ({ isShowing, hide }) =>
                               >
                                   <span aria-hidden="true">&times;</span>
                               </button>
-                              <div className={modal_help}>
-                                  content
-                              </div>
+                              <div className={modal_help}>content</div>
                           </div>
-
                       </div>
                   </div>
               </React.Fragment>,
