@@ -117,7 +117,7 @@
     .imageContainer {
         margin: -0.3rem;
         overflow: hidden;
-        background-image: url('../../AirlinesArena.jpg');
+        background-image: url('../../media/images/AirlinesArena.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 4em;

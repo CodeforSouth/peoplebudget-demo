@@ -29,7 +29,6 @@ const Contributor = () => {
                         <div className={contributor}>{contributorArr([1])}</div>
                         <div className={contributor}>{contributorArr([1])}</div>
                         <div className={contributor}>{contributorArr([1])}</div>
-                        <div className={contributor}>{contributorArr([1])}</div>
 
                     </div>
                 </div>
