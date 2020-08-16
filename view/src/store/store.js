@@ -46,7 +46,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             menus: [
                 { text: 'home', link: '/', auth: 0 },
-                { text: 'projects', link: '/projects', auth: 0 },
                 { text: 'feed', link: '/feed', auth: 1 },
                 { text: 'proposals', link: '/proposals', auth: 2 },
                 { text: 'dashboard', link: '/dashboard', auth: 3 },
@@ -101,7 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             changeProjectId: (id) => (getStore().selectedProjectId = id),
             getProject: () =>
                 getStore().selectedProjectId
-                    ? getStore().projects.find(elem => elem.id === getStore().selectedProjectId)
+                    ? getStore().projects.find((elem) => elem.id === getStore().selectedProjectId)
                     : null,
             getProjects: () => getStore().projects
         }

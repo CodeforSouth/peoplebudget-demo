@@ -12,7 +12,7 @@ const faker = require('faker');
 const Contributor = () => {
     const contributorArr = (profiles) => {
         return profiles.map((profile, index) => (
-            <ProfilePic name={faker.name.findName()} image={faker.image.avatar()} />
+            <ProfilePic key={`contributor-${index}`} name={faker.name.findName()} image={faker.image.avatar()} />
         ));
     };
     return (

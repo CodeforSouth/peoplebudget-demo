@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from '../../../store/store';
-import { bob, open, close, marker, pointer } from './index.module.css';
+import { bob, open, marker, pointer } from './index.module.css';
 
 const Marker = (props) => {
     const {

@@ -3,7 +3,7 @@ import Comments from '../components/CommentPanel/index';
 import Map from '../components/Map/index';
 import Marker from '../components/Map/Marker/index';
 import Navbar from '../components/Navbar/index';
-import { Projects, ProjectsList } from '../components/ProjectsList/index';
+import { Projects /*, ProjectsList */} from '../components/ProjectsList/index';
 import Popup from '../components/Popup/index';
 import usePopup from '../components/usePopup/index';
 import { Context } from '../store/store';

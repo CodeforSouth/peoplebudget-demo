@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState/*, useEffect*/ } from 'react';
 import { Context } from '../../store/store';
 import { hideScrollBar } from './index.module.css';
 
