@@ -1,17 +1,8 @@
 const { DB } = require('../database/database');
 const { DataTypes } = require('sequelize');
+const user = require('./user');
 
 const post = DB.define('post', {
-    userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'Users',
-            key: 'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-    },
     body: {
         type: DataTypes.STRING,
         allowNull: false
@@ -28,17 +19,11 @@ const post = DB.define('post', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    datePosted: {
-        type: DataTypes.STRING(20),
-        allowNull: false
-    },
-    comments: {
-        types: DataTypes.JSON,
-        allowNull: false
-    },
     coords: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.JSON,
         allowNull: false
     }
 });
+
+user.hasMany(post);
 module.exports = post;
