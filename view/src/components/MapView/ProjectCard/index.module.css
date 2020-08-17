@@ -1,0 +1,110 @@
+@keyframes grow-card {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes grow-img {
+    from {
+        opacity: 0;
+        height: 0;
+    }
+    to {
+        opacity: 1;
+        height: 200px;
+    }
+}
+
+.imgGrow {
+    animation: grow-img .5s;
+    height: 200px;
+}
+
+.card {
+    border-radius: 2em;
+    background-color: white;
+    padding: 0.5em 0;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.175);
+    color: #084652;
+    animation: grow-card 0.5s;
+}
+
+.card:hover{
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.411);
+    transition: .5s;
+}
+
+.card > div:first-child:hover {
+    cursor: pointer;
+}
+
+.card > div:first-child > div:nth-of-type(1) {
+    font-size: 1.1em;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.card > div:first-child > div:nth-of-type(2) {
+    font-size: 1.1em;
+    font-weight: 800;
+    text-transform: capitalize;
+    color: #ee7423;
+}
+
+.card > div:first-child > div:nth-of-type(3),
+.card > div:first-child > div:nth-of-type(4) {
+    font-size: 0.9em;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.card > div:first-child > div:nth-of-type(4) > span:first-child {
+    padding-right: 0.5em;
+}
+.card > div:first-child > div:nth-of-type(4) > span {
+    padding-left: 0.2em;
+    font-size: 1em;
+    vertical-align: -2px;
+}
+
+.card > div:first-child > div:nth-of-type(2),
+.card > div:first-child > div:nth-of-type(4) {
+    text-align: right;
+}
+
+.card > div:last-child > div:first-child > div > div > div:first-child {
+    background-color: #f4f4f4;
+}
+
+.card > div:last-child > div:first-child > div > div > div > div:first-child {
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.card > div:last-child > div:nth-of-type(2) {
+    padding: 0.25em 1em;
+}
+.card > div:last-child > div:nth-of-type(3) {
+    padding: 0.25em 1em;
+}
+
+.card > div:last-child > div:nth-of-type(2) div {
+    align-self: center;
+    justify-self: end;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #ee7423;
+    transform: rotate(-90deg) scaleY(2) scaleX(3) translateX(-5px);
+    box-shadow: ;
+}
+
+.card > div:last-child > div:nth-of-type(2) div:hover {
+    transform: rotate(-90deg) scaleY(2.2) scaleX(3.6) translateX(-5px);
+    transition: 0.2s;
+    cursor: pointer;
+}

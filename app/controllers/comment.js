@@ -8,7 +8,7 @@ router.post('/', async (req, res, next) => {
     const validationError = customValidator(req.body, {
         userId: { type: 'numeric' },
         postId: { type: 'numeric' },
-        commentBody: null
+        commentBody: { nullable: false }
     });
     if (validationError) {
         next(validationError);
@@ -19,9 +19,9 @@ router.post('/', async (req, res, next) => {
     } = req;
     try {
         const comment = await Comment.create({
-            userId,
-            postId,
-            commentBody
+            UserId: userId,
+            PostId: PostId,
+            body: commentBody
         });
         res.header('Location', `api/v1/comment/?id=${comment.id}`);
         res.statusCode = 201;

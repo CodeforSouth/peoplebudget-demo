@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import LoginComp from '../components/LoginComp';
 
 const Login = () => {
