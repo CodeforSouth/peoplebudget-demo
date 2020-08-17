@@ -13,11 +13,10 @@ const FAQ = () => {
     return (
         <div className={`p-0 container-fluid`}>
             <Navbar options={getMenus()} />
-            <SearchBar/>
-            <Questions/>
-            <Video/>
-            
-            {/* <Footer /> */}
+            <SearchBar />
+            <Questions />
+            <Video />
+            <Footer />
         </div>
     );
 };

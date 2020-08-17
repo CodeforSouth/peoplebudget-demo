@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useContext, useEffect /*, useState*/ } from 'react';
 import LoginComp from '../components/LoginComp';
+import { useHistory } from 'react-router-dom';
+import { Context } from '../store/store';
 
 const Login = () => {
     const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [pass, setPass] = useState('');
     const {
-        actions: { login },
+        //actions: { login },
         store: { loggedIn }
     } = useContext(Context);
 
-    const handleClickEvent = async () => {
-        await login(email, pass);
-        setPass('')
-    };
+    // const handleClickEvent = async () => {
+    //     await login(email, pass);
+    //     setPass('')
+    // };
 
     useEffect(() => {
         if (loggedIn) history.push('/proposals');
-    }, [loggedIn]);
-
-    // console.log(email, pass, loggedIn);
+    }, [loggedIn, history]);
 
     return <LoginComp />;
 };

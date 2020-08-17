@@ -1,4 +1,5 @@
 .imageContainer {
+    /* background-image: url('../../media/images/miamiMap.png'); */
     background-image: url('../../media/images/miamiMap.png');
     background-size: cover;
     background-repeat: no-repeat;
