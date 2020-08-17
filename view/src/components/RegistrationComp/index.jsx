@@ -19,6 +19,7 @@ import {
     lineContainer,
     inputContainer,
     input2,
+    input3,
     signup,
     linkText
 } from './index.module.css';
@@ -112,12 +113,43 @@ const RegistrationComp = () => {
                             type="password"
                             placeholder="Password"
                         />
-                        <Select placeholder="Security Question" />
                         <Input
-                            name="answer"
+                            name="budgetItem"
                             className="form-control"
-                            type="answer"
-                            placeholder="Answer"
+                            type="budgetItem"
+                            placeholder="Budget Item"
+                        />
+                        <Input
+                            name="address1"
+                            className="form-control"
+                            type="address1"
+                            placeholder="Address"
+                        />
+                        <div className={`${input3}`}>
+                        <Input
+                            name="address2"
+                            className="form-control"
+                            type="address2"
+                            placeholder="Sec. Address"
+                        />
+                        <Input
+                            name="age"
+                            className="form-control"
+                            type="age"
+                            placeholder="Age"
+                        />
+                        <Input
+                            name="income"
+                            className="form-control"
+                            type="income"
+                            placeholder="Annual Income*"
+                        />
+                        </div>
+                        <Input
+                            name="occupation"
+                            className="form-control"
+                            type="occupation"
+                            placeholder="Occupation*"
                         />
                         <div className={`${signup}`}>
                             <Link to="/register">

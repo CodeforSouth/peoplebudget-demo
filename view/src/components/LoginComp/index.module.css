@@ -2,14 +2,13 @@
 @media screen and (min-width: 300px) {
     .nav {
         grid-column: 1/4;
-        padding-bottom: 1rem;
     }
 
     .container {
         display: grid;
         grid-template-columns: 1fr 15fr 1fr;
+        grid-template-rows: 1fr 5fr 1fr;
         grid-column: 2/ 3;
-        padding-bottom: 3rem;
     }
 
     .wrapper {
@@ -100,7 +99,7 @@
     }
 
     .container {
-        padding-bottom: 4rem;
+        grid-template-rows: 1fr 7fr 1fr;
     }
 
     .wrapper {
@@ -140,3 +139,22 @@
         width: 13rem;
     }
 }
+
+/* Extra large devices (large laptops and desktops, 1600px and up) */
+@media screen and (min-width: 1600px) {
+    .container {
+        grid-template-rows: 1fr 5fr 1fr;
+    }
+
+    .hr {
+        width: 15rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1800px and up) */
+@media screen and (min-width: 1800px) {
+    .container {
+        grid-template-rows: 1fr 3.2fr 1fr;
+    }
+}
+
