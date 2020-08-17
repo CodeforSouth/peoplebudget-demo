@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React/*, { useState, useRef }*/ from 'react';
 import Input from '../Inputv3/index';
 import Select from '../Dropdown/index';
 import Navbar from '../Navbar/index';
-import axios from 'axios';
-import { Form, FormGroup, Label } from 'reactstrap';
-import { Redirect } from 'react-router';
+// import axios from 'axios';
+// import { Form, FormGroup, Label } from 'reactstrap';
+// import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import {
     nav,

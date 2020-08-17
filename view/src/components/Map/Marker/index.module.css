@@ -1,12 +1,24 @@
 @keyframes bobAnimation {
     from {
-        transform: scale(1);
+        transform: scale(2);
     }
     50% {
-        transform: scale(1.5);
+        transform: scale(2.5);
     }
     to {
-        transform: scale(1);
+        transform: scale(2);
+    }
+}
+
+@keyframes bobAnimation2 {
+    from {
+        transform: rotate(180deg) scaleY(1.5) scaleX(3) translateY(-1px);
+    }
+    50% {
+        transform: rotate(180deg) scaleY(2) scaleX(4) translateY(-1px);
+    }
+    to {
+        transform: rotate(180deg) scaleY(1.5) scaleX(3) translateY(-1px);
     }
 }
 
@@ -22,28 +34,53 @@
 }
 
 .bob {
-    animation: bobAnimation 3.5s infinite;
+    animation: bobAnimation 2.5s infinite;
 }
 
-.open {
-    animation: openAnimation 0.5s;
+.container {
+    position: relative;
 }
 
-.close {
-    animation: openAnimation 0.5s reverse;
+
+.container > div:first-child:active {
+    border-bottom: 10px solid #ff7d27;
 }
 
-.marker {
-    width: '250px';
-    height: '250px';
-    padding: '3px';
-    color: 'black';
-    background-color: 'white';
-    font-size: '2rem';
-    top: '-29vh';
-    left: '-12vh';
-    position: 'absolute';
-    z-index: '2';
+.container > div:first-child {
+    align-self: center;
+    justify-self: end;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #3a1c08;
+    animation: bobAnimation2 3.5s infinite;
+    transform: rotate(180deg) scaleY(2.5) scaleX(4) translateY(-1px);
+}
+.container > div:first-child > div {
+    align-self: center;
+    justify-self: end;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #ee7423;
+    transform: rotate(0deg) scale(0.75) scaleY(0.9) scaleX(0.9) translateY(1px) translateX(-7px);
+}
+
+.container > div:last-child {
+    background-color: white;
+    height: auto;
+    width: 250px;
+    margin-left: 30px;
+    margin-top: -15px;
+    font-weight: 600;
+    visibility: hidden;
+}
+
+.container > div:first-child:hover + div:last-child {
+    visibility: visible;
+    transition: 5s;
 }
 
 .pointer {

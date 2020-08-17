@@ -1,0 +1,63 @@
+.modal_lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.modal_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    z-index: 11;
+    
+}
+
+.modal {
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background: white;
+    border-radius: 4em;
+    border-style: solid;
+    border-width: thick;
+    border-color: darkgray;
+    
+}
+
+.modal_content {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 10% 80% 10%;
+    justify-items: center;
+    
+}
+
+.modal_close_button {
+    grid-column: 3/span 3;
+    grid-row: 1/2;
+    font-size: 2rem;
+    font-weight: 600;
+    color: gray;
+    border: none;
+    background: rgb(0, 0, 0, 0);
+}
+
+.modal_help {
+    text-transform: capitalize;
+    font-size: 3.4rem;
+    font-weight: 700;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}

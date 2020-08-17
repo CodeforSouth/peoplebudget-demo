@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React /*, { useState, useRef }*/ from 'react';
 import RegistrationComp from '../components/RegistrationComp';
 
 const Register = () => {
