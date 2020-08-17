@@ -1,7 +1,8 @@
-import React /*, { useState, useRef }*/ from 'react';
+import React, { useContext, useEffect /*, useState */ } from 'react';
+import { Context } from '../../store/store';
+import { useHistory, Link } from 'react-router-dom';
 import Input from '../Inputv3/index';
 import Navbar from '../Navbar/index';
-import { Link } from 'react-router-dom';
 import {
     nav,
     imageContainer,
@@ -9,7 +10,6 @@ import {
     wrapper,
     compContainer,
     welcome,
-    // button,
     hr,
     or,
     linkedinSignIn,
@@ -21,22 +21,22 @@ import {
 
 const LoginComp = () => {
     const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [pass, setPass] = useState('');
     const {
-        actions: { login },
+        // actions: { login },
         store: { loggedIn }
     } = useContext(Context);
 
-    const handleClickEvent = async () => {
-        await login(email, pass);
-        setEmail('email');
-        setPass('password');
-    };
+    // const handleClickEvent = async () => {
+    //     await login(email, pass);
+    //     setEmail('email');
+    //     setPass('password');
+    // };
 
     useEffect(() => {
         if (loggedIn) history.push('/proposals');
-    }, [loggedIn]);
+    }, [loggedIn, history]);
 
     return (
         <div className={`${container}`}>

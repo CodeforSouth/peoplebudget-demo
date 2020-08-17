@@ -1,11 +1,12 @@
-import React/*, { useState, useRef }*/ from 'react';
+import React, { /* useState,*/ useContext, useEffect } from 'react';
+import { Context } from '../../store/store';
+import { useHistory, Link } from 'react-router-dom';
 import Input from '../Inputv3/index';
-import Select from '../Dropdown/index';
 import Navbar from '../Navbar/index';
+// import Select from '../Dropdown/index';
 // import axios from 'axios';
 // import { Form, FormGroup, Label } from 'reactstrap';
 // import { Redirect } from 'react-router';
-import { Link } from 'react-router-dom';
 import {
     nav,
     imageContainer,
@@ -26,40 +27,40 @@ import {
 
 const RegistrationComp = () => {
     const history = useHistory();
-    const [fname, setFname] = useState('');
-    const [lname, setLname] = useState('');
-    const [address1, setAddress1] = useState('');
-    const [address2, setAddress2] = useState('');
-    const [age, setAge] = useState('');
-    const [budgetitem, setBudgetitem] = useState('');
-    const [income, setIncome] = useState('');
-    const [occupation, setOccupation] = useState('');
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState(''); 
+    // const [fname, setFname] = useState('');
+    // const [lname, setLname] = useState('');
+    // const [address1, setAddress1] = useState('');
+    // const [address2, setAddress2] = useState('');
+    // const [age, setAge] = useState('');
+    // const [budgetitem, setBudgetitem] = useState('');
+    // const [income, setIncome] = useState('');
+    // const [occupation, setOccupation] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [pass, setPass] = useState('');
     const {
-        actions: { register },
+        // actions: { register },
         store: { loggedIn }
     } = useContext(Context);
 
-    const handleClickEvent = async () => {
-        await register(fname, lname, address1, address2, age, budgetitem, email, pass,
-            income, occupation);
-        setFname('firstName');
-        setLname('lastName');
-        setAddress1('address1');
-        setAddress2('address2');
-        setAge('age');
-        setBudgetitem('budgetItem');
-        setEmail('email');
-        setPass('password');
-        setIncome('income');
-        setOccupation('occupation');
-    };
+    // const handleClickEvent = async () => {
+    //     await register(fname, lname, address1, address2, age, budgetitem, email, pass,
+    //         income, occupation);
+    //     setFname('firstName');
+    //     setLname('lastName');
+    //     setAddress1('address1');
+    //     setAddress2('address2');
+    //     setAge('age');
+    //     setBudgetitem('budgetItem');
+    //     setEmail('email');
+    //     setPass('password');
+    //     setIncome('income');
+    //     setOccupation('occupation');
+    // };
 
     useEffect(() => {
         if (loggedIn) history.push('/proposals');
-    }, [loggedIn]);
-    
+    }, [loggedIn, history]);
+
     return (
         <div className={`${container}`}>
             <div className={`${nav}`}>
@@ -126,24 +127,24 @@ const RegistrationComp = () => {
                             placeholder="Address"
                         />
                         <div className={`${input3}`}>
-                        <Input
-                            name="address2"
-                            className="form-control"
-                            type="address2"
-                            placeholder="Sec. Address"
-                        />
-                        <Input
-                            name="age"
-                            className="form-control"
-                            type="age"
-                            placeholder="Age"
-                        />
-                        <Input
-                            name="income"
-                            className="form-control"
-                            type="income"
-                            placeholder="Annual Income*"
-                        />
+                            <Input
+                                name="address2"
+                                className="form-control"
+                                type="address2"
+                                placeholder="Sec. Address"
+                            />
+                            <Input
+                                name="age"
+                                className="form-control"
+                                type="age"
+                                placeholder="Age"
+                            />
+                            <Input
+                                name="income"
+                                className="form-control"
+                                type="income"
+                                placeholder="Annual Income*"
+                            />
                         </div>
                         <Input
                             name="occupation"

@@ -32,7 +32,7 @@ export const injectContext = (PassedComponent) => {
                 //console.log(state.store.lastInteraction);
                 state.store.lastInteraction = Date.now();
             });
-        }, []);
+        });
 
         // The initial value for the context is not null anymore, but the current state of this component,
         // the context will now have a getStore, getActions and setStore functions available, because they were declared
@@ -91,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             ],
             selectedProjectId: null,
-            auth: 0, // 0 unauthenticated, 1 logged in, 2 contributer, 3 admin
+            auth: 3, // 0 unauthenticated, 1 logged in, 2 contributer, 3 admin
             api: axios.create({
                 baseURL: 'http://localhost:3000',
                 withCredentials: true
@@ -103,12 +103,31 @@ const getState = ({ getStore, getActions, setStore }) => {
             lastInteraction: null // captures if the user is clicking on the website
         },
         actions: {
-            register: async (fname, lname, address1, address2, age, budgetitem, email, pass,
-                income, occupation ) => {
+            register: async (
+                fname,
+                lname,
+                address1,
+                address2,
+                age,
+                budgetitem,
+                email,
+                pass,
+                income,
+                occupation
+            ) => {
                 try {
-                    const api = await getStore().api.post('/api/v1/auth/register', 
-                    { fname, lname, address1, address2, age, budgetitem, email, pass,
-                        income, occupation });
+                    const api = await getStore().api.post('/api/v1/auth/register', {
+                        fname,
+                        lname,
+                        address1,
+                        address2,
+                        age,
+                        budgetitem,
+                        email,
+                        pass,
+                        income,
+                        occupation
+                    });
                     // const auth = await getStore().api.post('/api/v1/auth/auth-check', { email });
                     if (api.status === 200) {
                         getStore().auth = 1;
@@ -118,7 +137,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         const refreshInterval = setInterval(async () => {
                             // if the last time of interaction was greater than 5 minutes
                             if (Date.now() - getStore().lastInteraction > 1000 * 60 * 5) {
-                                const api = await getStore().api.post('/api/v1/auth/refresh');
+                                await getStore().api.post('/api/v1/auth/refresh');
                                 console.log('session refreshed');
                             } else {
                                 console.log('logging out');
@@ -142,7 +161,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         const refreshInterval = setInterval(async () => {
                             // if the last time of interaction was greater than 5 minutes
                             if (Date.now() - getStore().lastInteraction > 1000 * 60 * 5) {
-                                const api = await getStore().api.post('/api/v1/auth/refresh');
+                                await getStore().api.post('/api/v1/auth/refresh');
                                 console.log('session refreshed');
                             } else {
                                 console.log('logging out');
@@ -169,7 +188,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             getMenus: () => getStore().menus.filter((menu, index) => getStore().auth >= menu.auth),
-            changeProjectId: (id) => (setStore({selectedProjectId: id})),
+            changeProjectId: (id) => setStore({ selectedProjectId: id }),
             getProject: () =>
                 getStore().selectedProjectId
                     ? getStore().projects.find((elem) => elem.id === getStore().selectedProjectId)

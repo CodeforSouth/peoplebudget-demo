@@ -1,0 +1,28 @@
+.links {
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 8px;
+    display: inline-block;
+    color: gray;
+}
+
+.links:hover {
+    color: rgb(35, 126, 182);
+    cursor: pointer;
+    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
+    animation-name: linkHover;
+    animation-duration: .25s;
+    border-bottom: 4px solid rgb(35, 126, 182);
+    text-decoration: none;
+}
+
+@keyframes linkHover {
+    from {
+        /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0); */
+    }
+    to {
+        /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
+    }
+    
+}

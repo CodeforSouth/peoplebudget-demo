@@ -10,6 +10,8 @@ const prepareDatabase = (model) => async () => await model.destroy({ where: {} }
 const testJson = {
     fname: 'test',
     lname: 'test',
+    age: 25,
+    budgetitem: 'Water fountains in park',
     email: 'test@test.com',
     pass: 'aPassword*!',
     recover: 'password',
@@ -19,7 +21,9 @@ const testJson = {
     securityQuestion: 'sec',
     linkedinurl: 'www.linkedn.com',
     image: 'test',
-    zip: 33333
+    zip: 33333,
+    income: 60000,
+    occupation: 'city planner'
 };
 
 dbPostEntryId = null;
@@ -33,14 +37,14 @@ describe('Reply API', () => {
     });
     afterEach(prepareDatabase(User));
     it('Can create a new user', async (done) => {
-        const { body, statusCode } = await request(app).post('/api/v1/user').send(testJson);
+        const { body, statusCode } = await request(app).post('/api/v1/user').send(testJson); 
         expect(statusCode).toEqual(201);
         expect(body).toHaveProperty('response');
         expect(body.response).toBe('user created');
         done();
     });
     it("Can will fail to create new user without required field 'pass'", async (done) => {
-        testJosnWithoutPass = { ...testJson };
+        const testJosnWithoutPass = { ...testJson };
         delete testJosnWithoutPass.pass;
         const { body, statusCode } = await request(app)
             .post('/api/v1/user')
@@ -57,6 +61,8 @@ describe('Reply API', () => {
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -65,7 +71,9 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const output = {
             count: 1,
@@ -74,12 +82,17 @@ describe('Reply API', () => {
                     id: user.id,
                     firstName: testJson.fname,
                     lastName: testJson.lname,
+                    age: testJson.age,
+                    budgetItem: testJson.budgetitem,
                     email: testJson.email,
                     linkedinurl: testJson.linkedinurl,
                     image: testJson.image,
                     zip: testJson.zip,
+                    RoleId: testJson.roleid,
                     address1: testJson.address1,
-                    address2: testJson.address2
+                    address2: testJson.address2,
+                    annualIncome: testJson.income,
+                    occupation: testJson.occupation
                 }
             ],
             maxPages: 1
@@ -95,6 +108,8 @@ describe('Reply API', () => {
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -103,18 +118,25 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const output = {
             id: user.id,
             firstName: testJson.fname,
             lastName: testJson.lname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             email: testJson.email,
             linkedinurl: testJson.linkedinurl,
             image: testJson.image,
             zip: testJson.zip,
+            RoleId: testJson.roleid,
             address1: testJson.address1,
-            address2: testJson.address2
+            address2: testJson.address2,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         };
         const { body, statusCode } = await request(app).get(`/api/v1/user?id=${user.id}`);
         expect(statusCode).toEqual(200);
@@ -127,6 +149,8 @@ describe('Reply API', () => {
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -135,7 +159,9 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const testJosnWithNameChanged = { firstName: 'test2' };
         const { body, statusCode } = await request(app)
@@ -151,6 +177,8 @@ describe('Reply API', () => {
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -159,7 +187,9 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const testJosnWithNameChanged = { firstName: 'testJson.fname' };
         const { body, statusCode } = await request(app)
@@ -177,6 +207,8 @@ describe('Reply API', () => {
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -185,7 +217,9 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const { body, statusCode } = await request(app)
             .delete(`/api/v1/user`)
@@ -200,6 +234,8 @@ describe('Reply API', () => {
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -208,12 +244,16 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const userb = await User.create({
             email: testJson.email,
             lastName: testJson.lname,
             firstName: testJson.fname,
+            age: testJson.age,
+            budgetItem: testJson.budgetitem,
             hash: await hash(testJson.pass),
             recoveryHash: await hash(testJson.recover),
             securityQuestion: testJson.securityQuestion,
@@ -222,7 +262,9 @@ describe('Reply API', () => {
             address1: testJson.address1,
             address2: testJson.address2,
             zip: testJson.zip,
-            linkedinurl: testJson.linkedinurl
+            linkedinurl: testJson.linkedinurl,
+            annualIncome: testJson.income,
+            occupation: testJson.occupation
         });
         const idArr = [usera.id, userb.id];
         const { body, statusCode } = await request(app).delete(`/api/v1/user`).send({ id: idArr });

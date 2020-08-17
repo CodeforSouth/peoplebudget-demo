@@ -14,7 +14,7 @@ const RouterComponent = () => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
-                <Route path="/login" component={Logout} />
+                <Route path="/logout" component={Logout} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/proposals" component={MapView} />
                 <Route path="/register" component={UserRegistration} />
