@@ -95,7 +95,6 @@
 @media screen and (min-width: 992px) {
     .nav {
         grid-column: 1/4;
-        padding-bottom: 1.5rem;
     }
 
     .container {
@@ -135,6 +134,10 @@
         row-gap: 0.8rem;
     }
 
+    .container {
+        grid-template-rows: 1fr 7fr 1fr;
+    }
+
     .hr {
         width: 13rem;
     }
@@ -157,4 +160,3 @@
         grid-template-rows: 1fr 3.2fr 1fr;
     }
 }
-

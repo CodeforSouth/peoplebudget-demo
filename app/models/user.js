@@ -30,6 +30,10 @@ const user = DB.define('User', {
         type: DataTypes.STRING(100),
         allowNull: true
     },
+    budgetItem: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
     image: {
         type: DataTypes.TEXT,
         allowNull: true
@@ -48,6 +52,18 @@ const user = DB.define('User', {
     },
     hash: {
         type: DataTypes.TEXT,
+        allowNull: false
+    },
+    annualIncome: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
+    occupation: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+    },
+    age: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     securityQuestion: {
