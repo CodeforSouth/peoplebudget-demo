@@ -143,8 +143,8 @@
     }
 }
 
+/* Extra large devices (large laptops and desktops, 1600px and up) */
 @media screen and (min-width: 1600px) {
-
     .container {
         grid-template-rows: 1fr 5fr 1fr;
     }
@@ -154,8 +154,8 @@
     }
 }
 
+/* Extra large devices (large laptops and desktops, 1800px and up) */
 @media screen and (min-width: 1800px) {
-
     .container {
         grid-template-rows: 1fr 3.2fr 1fr;
     }

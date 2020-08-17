@@ -1,5 +1,13 @@
 import React from 'react';
-import { wrapper, gridItems, firstCol, secondCol, thirdCol, fourthCol, Copyright } from './index.module.css';
+import {
+    wrapper,
+    gridItems,
+    firstCol,
+    secondCol,
+    thirdCol,
+    fourthCol,
+    Copyright
+} from './index.module.css';
 
 const footer = () => {
     return (
@@ -19,16 +27,16 @@ const footer = () => {
                         <h5 className="title">Links</h5>
                         <ul>
                             <li className="list-unstyled">
-                                <a href="#">Link 1</a>
+                                <a href="/">Link 1</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Link 2</a>
+                                <a href="/">Link 2</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Link 3</a>
+                                <a href="/">Link 3</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Link 4</a>
+                                <a href="/">Link 4</a>
                             </li>
                         </ul>
                     </div>
@@ -36,16 +44,16 @@ const footer = () => {
                         <h5 className="title">Connect</h5>
                         <ul>
                             <li className="list-unstyled">
-                                <a href="#">Facebook</a>
+                                <a href="/">Facebook</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Instagram</a>
+                                <a href="/">Instagram</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">Twitter</a>
+                                <a href="/">Twitter</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">LinkedIn</a>
+                                <a href="/">LinkedIn</a>
                             </li>
                         </ul>
                     </div>
@@ -74,8 +82,8 @@ const footer = () => {
             </div>
 
             <div className={Copyright}>
-                <div className="row">
-                    <div className="col">
+                <div className="row m-0">
+                    <div className="col-12">
                         &copy; {new Date().getFullYear()} Copyright:{' People Budget'}
                     </div>
                 </div>

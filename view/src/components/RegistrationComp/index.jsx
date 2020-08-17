@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React/*, { useState, useRef }*/ from 'react';
 import Input from '../Inputv3/index';
 import Select from '../Dropdown/index';
 import Navbar from '../Navbar/index';
-import axios from 'axios';
-import { Form, FormGroup, Label } from 'reactstrap';
-import { Redirect } from 'react-router';
+// import axios from 'axios';
+// import { Form, FormGroup, Label } from 'reactstrap';
+// import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import {
     nav,
@@ -19,11 +19,47 @@ import {
     lineContainer,
     inputContainer,
     input2,
+    input3,
     signup,
     linkText
 } from './index.module.css';
 
 const RegistrationComp = () => {
+    const history = useHistory();
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [address1, setAddress1] = useState('');
+    const [address2, setAddress2] = useState('');
+    const [age, setAge] = useState('');
+    const [budgetitem, setBudgetitem] = useState('');
+    const [income, setIncome] = useState('');
+    const [occupation, setOccupation] = useState('');
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState(''); 
+    const {
+        actions: { register },
+        store: { loggedIn }
+    } = useContext(Context);
+
+    const handleClickEvent = async () => {
+        await register(fname, lname, address1, address2, age, budgetitem, email, pass,
+            income, occupation);
+        setFname('firstName');
+        setLname('lastName');
+        setAddress1('address1');
+        setAddress2('address2');
+        setAge('age');
+        setBudgetitem('budgetItem');
+        setEmail('email');
+        setPass('password');
+        setIncome('income');
+        setOccupation('occupation');
+    };
+
+    useEffect(() => {
+        if (loggedIn) history.push('/proposals');
+    }, [loggedIn]);
+    
     return (
         <div className={`${container}`}>
             <div className={`${nav}`}>
@@ -77,12 +113,43 @@ const RegistrationComp = () => {
                             type="password"
                             placeholder="Password"
                         />
-                        <Select placeholder="Security Question" />
                         <Input
-                            name="answer"
+                            name="budgetItem"
                             className="form-control"
-                            type="answer"
-                            placeholder="Answer"
+                            type="budgetItem"
+                            placeholder="Budget Item"
+                        />
+                        <Input
+                            name="address1"
+                            className="form-control"
+                            type="address1"
+                            placeholder="Address"
+                        />
+                        <div className={`${input3}`}>
+                        <Input
+                            name="address2"
+                            className="form-control"
+                            type="address2"
+                            placeholder="Sec. Address"
+                        />
+                        <Input
+                            name="age"
+                            className="form-control"
+                            type="age"
+                            placeholder="Age"
+                        />
+                        <Input
+                            name="income"
+                            className="form-control"
+                            type="income"
+                            placeholder="Annual Income*"
+                        />
+                        </div>
+                        <Input
+                            name="occupation"
+                            className="form-control"
+                            type="occupation"
+                            placeholder="Occupation*"
                         />
                         <div className={`${signup}`}>
                             <Link to="/register">

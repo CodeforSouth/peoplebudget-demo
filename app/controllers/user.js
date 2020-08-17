@@ -80,7 +80,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 router.get('/', async (req, res, next) => {
-    let results;
+    let results = null;
     try {
         if (req.query.hasOwnProperty('id')) {
             results = await user.findOne({

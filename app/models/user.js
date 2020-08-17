@@ -1,8 +1,7 @@
 const { DB } = require('../database/database');
 const { DataTypes } = require('sequelize');
-const role = require('./role');
 
-/** 
+/**
  * User mapping.
  * @name user
  * @memberof module:database
@@ -11,6 +10,10 @@ const role = require('./role');
  * @returns {Function} - User object to insert or retrieve from the database
  */
 const user = DB.define('User', {
+    authLevel: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     firstName: {
         type: DataTypes.STRING(15),
         allowNull: false
@@ -72,6 +75,4 @@ const user = DB.define('User', {
         allowNull: false
     }
 });
-// One role has many users 1:M
-role.hasMany(user);
 module.exports = user;

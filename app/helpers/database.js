@@ -1,7 +1,7 @@
 /**
  * @module database
  */
-const { ClientError, ServerError } = require('../helpers/error');
+const { ClientError /* , ServerError*/ } = require('../helpers/error');
 
 /**
  * Will check is a resource already exists

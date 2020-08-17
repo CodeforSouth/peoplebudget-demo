@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React /*, { useState, useRef }*/ from 'react';
 import Input from '../Inputv3/index';
 import Navbar from '../Navbar/index';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import {
     wrapper,
     compContainer,
     welcome,
-    button,
+    // button,
     hr,
     or,
     linkedinSignIn,
@@ -20,6 +20,24 @@ import {
 } from './index.module.css';
 
 const LoginComp = () => {
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+    const {
+        actions: { login },
+        store: { loggedIn }
+    } = useContext(Context);
+
+    const handleClickEvent = async () => {
+        await login(email, pass);
+        setEmail('email');
+        setPass('password');
+    };
+
+    useEffect(() => {
+        if (loggedIn) history.push('/proposals');
+    }, [loggedIn]);
+
     return (
         <div className={`${container}`}>
             <div className={`${nav}`}>
@@ -38,11 +56,7 @@ const LoginComp = () => {
                     </div>
                     <div className={`${linkedinSignIn}`}>
                         <Link to="/login">
-                            <button
-                                className="button"
-                            >
-                                Sign in with LinkedIn
-                            </button>
+                            <button className="button">Sign in with LinkedIn</button>
                         </Link>
                     </div>
                     <div className={`${lineContainer}`}>
@@ -65,11 +79,7 @@ const LoginComp = () => {
                         />
                         <div className={`${signin}`}>
                             <Link to="/proposals">
-                            <button
-                                className="button"
-                            >
-                                Sign in
-                            </button>
+                                <button className="button">Sign in</button>
                             </Link>
                             <Link className={`${linkText}`} to="/register">
                                 Not a member?

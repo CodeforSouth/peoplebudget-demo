@@ -74,6 +74,12 @@
         grid-column: 3/4;
     }
 
+    .input3 {
+        grid-template-columns: 1fr 1fr 1fr;
+        display: grid;
+        column-gap: 1rem;
+    }
+
     .signup {
         display: grid;
         padding-top: 0.8rem;
