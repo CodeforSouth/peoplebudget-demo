@@ -20,6 +20,24 @@ import {
 } from './index.module.css';
 
 const LoginComp = () => {
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+    const {
+        actions: { login },
+        store: { loggedIn }
+    } = useContext(Context);
+
+    const handleClickEvent = async () => {
+        await login(email, pass);
+        setEmail('email');
+        setPass('password');
+    };
+
+    useEffect(() => {
+        if (loggedIn) history.push('/proposals');
+    }, [loggedIn]);
+
     return (
         <div className={`${container}`}>
             <div className={`${nav}`}>
