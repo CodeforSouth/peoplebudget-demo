@@ -1,0 +1,77 @@
+.grid {
+    height: 100vh;
+    background-color: #529288;
+    display: grid;
+    grid-template-rows: 15% 15% 40% 30%;
+    grid-template-columns: 10% 80% 10%;
+}
+.title {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    text-align: center;
+    color: #063335;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-row: repeat(2, 1fr);
+    padding-bottom: 3em;
+}
+.title h1 {
+    grid-row: 1 / span 1;
+    justify-self: center;
+    align-self: center;
+}
+.title h6 {
+    grid-row: 2 / span 1;
+    justify-self: center;
+    align-self: center;
+}
+.image {
+    border-radius: 2em;
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 1;
+    background: url('../../media/images/BeachPicture.jpg') no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 50% 25% 25%;
+}
+.search {
+    grid-row: 2 / span 1;
+    display: grid;
+    justify-self: center;
+    width: 80%;
+    grid-template-columns: 75% 15% 10%;
+}
+.search input {
+    font-size: 1.5em;
+    padding-left: 3%;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 3;
+    border-radius: 0.7em;
+    border: solid 1px;
+}
+.button {
+    border-radius: 1em;
+    background-color: #ee9623;
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+    width: 100%;
+    height: 100%;
+}
+.search span {
+    font-size: 1.5em;
+    vertical-align: middle !important;
+    padding-bottom: 3px;
+}
+.search
+h5 {
+    padding-top: 5%;
+    font-size: 1.5em;
+    color: #633f0f;
+}
+.search input:focus{
+    outline-width: 0;
+}
+.search button:focus{
+    outline-width: 0;
+}
