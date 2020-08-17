@@ -3,6 +3,7 @@
  */
 
 const Seq = require('sequelize');
+const { check } = require('prettier');
 
 const pool = {
     max: 5,
@@ -38,7 +39,33 @@ const DB = new Seq(dbEnv(), process.env.DBUSER, process.env.DBPW, {
 })();
 
 /**
- * WIll migrate all tables or a single table.
+ * Populate the database on start up
+ * @name populateDatabase
+ * @memberof module:database
+ * @async
+ * @function
+ * @return {null}
+ */
+const populateAuthLevels = async () => {
+    try {
+        const authLevels = require('../models/authLevels');
+        const authLevelsDetails = process.env.AUTHLEVELS.split('.').map((levels) => {
+            const [level, description] = levels.split(',');
+            return { level, description };
+        });
+        await authLevels.destroy({
+            where: {},
+            truncate: true
+        });
+        await authLevels.bulkCreate(authLevelsDetails);
+        return authLevelsDetails;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+/**
+ * Will migrate all tables or a single table.
  * @name migrate
  * @memberof module:database
  * @async
@@ -117,4 +144,4 @@ const drop = async (table) => {
     }
 };
 
-module.exports = { DB, migrate, drop };
+module.exports = { DB, migrate, drop, populateAuthLevels };

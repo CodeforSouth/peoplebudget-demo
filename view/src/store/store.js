@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 export const Context = React.createContext(null);
 
 export const injectContext = (PassedComponent) => {
@@ -27,6 +27,11 @@ export const injectContext = (PassedComponent) => {
              * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
              *
              **/
+            // checks for the last click on an the web app to determine if it should be refreshed
+            document.getElementById('root').addEventListener('click', () => {
+                //console.log(state.store.lastInteraction);
+                state.store.lastInteraction = Date.now();
+            });
         }, []);
 
         // The initial value for the context is not null anymore, but the current state of this component,
@@ -49,7 +54,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { text: 'feed', link: '/feed', auth: 1 },
                 { text: 'proposals', link: '/proposals', auth: 2 },
                 { text: 'dashboard', link: '/dashboard', auth: 3 },
-                { text: 'profile', link: '/profile', auth: 1 }
+                { text: 'profile', link: '/profile', auth: 1 },
+                { text: 'Login', link: '/login', auth: 0 },
+                { text: 'Logout', link: '/logout', auth: 1 }
             ],
             projects: [
                 {
@@ -84,17 +91,82 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             ],
             selectedProjectId: null,
-            auth: 3 // 0 unauthenticated, 1 logged in, 2 contributer, 3 admin
+            auth: 0, // 0 unauthenticated, 1 logged in, 2 contributer, 3 admin
+            api: axios.create({
+                baseURL: 'http://localhost:3000',
+                withCredentials: true
+            }),
+            loggedIn: false, //login status
+            loginAt: null, // time in MS
+            exp: null, // when to try a refresh
+            refreshInterval: null,
+            lastInteraction: null // captures if the user is clicking on the website
         },
         actions: {
-            // Use getActions to call a function within a fuction
-            exampleFunction: () => {
-                getActions().changeColor(0, 'green');
+            register: async (fname, lname, address1, address2, age, budgetitem, email, pass,
+                income, occupation ) => {
+                try {
+                    const api = await getStore().api.post('/api/v1/auth/register', 
+                    { fname, lname, address1, address2, age, budgetitem, email, pass,
+                        income, occupation });
+                    // const auth = await getStore().api.post('/api/v1/auth/auth-check', { email });
+                    if (api.status === 200) {
+                        getStore().auth = 1;
+                        getStore().loggedIn = true;
+                        getStore().loginAt = Date.now();
+                        getStore().exp = Date.now() + 900000; // + 14 minutes
+                        const refreshInterval = setInterval(async () => {
+                            // if the last time of interaction was greater than 5 minutes
+                            if (Date.now() - getStore().lastInteraction > 1000 * 60 * 5) {
+                                const api = await getStore().api.post('/api/v1/auth/refresh');
+                                console.log('session refreshed');
+                            } else {
+                                console.log('logging out');
+                            }
+                        }, 840000);
+                        getStore().refreshInterval = refreshInterval;
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
             },
-            loadSomeData: () => {
-                /**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+            login: async (email, pass) => {
+                try {
+                    const api = await getStore().api.post('/api/v1/auth/login', { email, pass });
+                    // const auth = await getStore().api.post('/api/v1/auth/auth-check', { email });
+                    if (api.status === 200) {
+                        getStore().auth = 1;
+                        getStore().loggedIn = true;
+                        getStore().loginAt = Date.now();
+                        getStore().exp = Date.now() + 900000; // + 14 minutes
+                        const refreshInterval = setInterval(async () => {
+                            // if the last time of interaction was greater than 5 minutes
+                            if (Date.now() - getStore().lastInteraction > 1000 * 60 * 5) {
+                                const api = await getStore().api.post('/api/v1/auth/refresh');
+                                console.log('session refreshed');
+                            } else {
+                                console.log('logging out');
+                            }
+                        }, 840000);
+                        getStore().refreshInterval = refreshInterval;
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+            },
+            logout: async () => {
+                try {
+                    const api = await getStore().api.post('/api/v1/auth/logout');
+                    if (api.status === 200) {
+                        clearInterval(getStore().refreshInterval);
+                        getStore().refreshInterval = null;
+                        getStore().loggedIn = true;
+                        getStore().loginAt = null;
+                        getStore().exp = null;
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
             },
             getMenus: () => getStore().menus.filter((menu, index) => getStore().auth >= menu.auth),
             changeProjectId: (id) => (setStore({selectedProjectId: id})),

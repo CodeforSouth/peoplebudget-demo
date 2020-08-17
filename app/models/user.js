@@ -10,6 +10,10 @@ const { DataTypes } = require('sequelize');
  * @returns {Function} - User object to insert or retrieve from the database
  */
 const user = DB.define('User', {
+    authLevel: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     firstName: {
         type: DataTypes.STRING(15),
         allowNull: false
@@ -46,12 +50,10 @@ const user = DB.define('User', {
         type: DataTypes.TEXT,
         allowNull: false
     },
-
     securityQuestion: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-
     recoveryHash: {
         type: DataTypes.STRING,
         allowNull: false
