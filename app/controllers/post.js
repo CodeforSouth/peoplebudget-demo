@@ -44,10 +44,10 @@ router.post('/', async (req, res, next) => {
             body: { address, body, userId, title, tags, votes }
         } = req;
 
-        let coords = await addressToCoords(address);
+        const coords = await addressToCoords(address);
 
         const newPost = await post.create({
-            UserId: userId, //NOTE: Capital U when using the user.hasMany(Post)
+            UserId: userId, // NOTE: Capital U when using the user.hasMany(Post)
             body: body,
             coords: coords,
             title: title,
