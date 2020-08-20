@@ -2,6 +2,7 @@ import React, { /* useState,*/ useContext, useEffect } from 'react';
 import { Context } from '../../store/store';
 import { useHistory, Link } from 'react-router-dom';
 import Input from '../Inputv3/index';
+import Select from '../Dropdown/index';
 import Navbar from '../Navbar/index';
 // import Select from '../Dropdown/index';
 // import axios from 'axios';
@@ -19,8 +20,8 @@ import {
     linkedinSignIn,
     lineContainer,
     inputContainer,
-    input2,
-    input3,
+    input2col,
+    input3col,
     signup,
     linkText
 } from './index.module.css';
@@ -88,69 +89,90 @@ const RegistrationComp = () => {
                         <hr className={`${hr}`}></hr>
                     </div>
                     <div className={`${inputContainer}`}>
-                        <Input
-                            name="firstName"
-                            className="form-control"
-                            type="firstName"
-                            placeholder="First Name"
-                        />
-                        <Input
-                            name="lastName"
-                            className="form-control"
-                            type="lastName"
-                            placeholder="Last Name"
-                        />
-                    </div>
-                    <div className={`${input2}`}>
-                        <Input
-                            name="email"
-                            className="form-control"
-                            type="email"
-                            placeholder="Email"
-                        />
-                        <Input
-                            name="password"
-                            className="form-control"
-                            type="password"
-                            placeholder="Password"
-                        />
-                        <Input
-                            name="budgetItem"
-                            className="form-control"
-                            type="budgetItem"
-                            placeholder="Budget Item"
-                        />
-                        <Input
-                            name="address1"
-                            className="form-control"
-                            type="address1"
-                            placeholder="Address"
-                        />
-                        <div className={`${input3}`}>
+                        <div className={`${input2col}`}>
+                            <Input
+                                name="firstName"
+                                className="form-control"
+                                type="firstName"
+                                placeholder="First Name*"
+                            />
+                            <Input
+                                name="lastName"
+                                className="form-control"
+                                type="lastName"
+                                placeholder="Last Name*"
+                            />
+                        </div>
+                            <Input
+                                name="email"
+                                className="form-control"
+                                type="email"
+                                placeholder="Email*"
+                            />
+                            <div className={`${input2col}`}>
+                            <Input
+                                name="password"
+                                className="form-control"
+                                type="password"
+                                placeholder="Password*"
+                            />
+                            <Input
+                                name="password"
+                                className="form-control"
+                                type="password"
+                                placeholder="Confirm Password*"
+                            />
+                            <Input
+                                name="address1"
+                                className="form-control"
+                                type="address1"
+                                placeholder="Address*"
+                            />
                             <Input
                                 name="address2"
                                 className="form-control"
                                 type="address2"
-                                placeholder="Sec. Address"
+                                placeholder="Sec. Address*"
+                            />
+                </div>
+                        <div className={`${input3col}`}>
+                        <Input
+                                name="zip"
+                                className="form-control"
+                                type="zip"
+                                placeholder="Zip Code*"
                             />
                             <Input
                                 name="age"
                                 className="form-control"
                                 type="age"
-                                placeholder="Age"
+                                placeholder="Age*"
                             />
                             <Input
                                 name="income"
                                 className="form-control"
                                 type="income"
-                                placeholder="Annual Income*"
+                                placeholder="Annual Income"
                             />
                         </div>
                         <Input
+                                name="budgetItem"
+                                className="form-control"
+                                type="budgetItem"
+                                placeholder="Budget Item*"
+                            />
+                            <Input
                             name="occupation"
                             className="form-control"
                             type="occupation"
-                            placeholder="Occupation*"
+                            placeholder="Occupation"
+                        />
+                        <Select placeholder="Security Question*" />
+                        <Input
+                            name="answer"
+                            className="form-control"
+                            type="answer"
+                            placeholder="Answer*"
                         />
                         <div className={`${signup}`}>
                             <Link to="/register">
@@ -160,7 +182,7 @@ const RegistrationComp = () => {
                                 Already a member?
                             </Link>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
