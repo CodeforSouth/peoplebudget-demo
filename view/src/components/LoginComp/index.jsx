@@ -25,7 +25,7 @@ const LoginComp = () => {
     // const [pass, setPass] = useState('');
     const {
         // actions: { login },
-        store: { loggedIn }
+        store: { loggedIn, renderLinkedin }
     } = useContext(Context);
 
     // const handleClickEvent = async () => {
@@ -33,8 +33,6 @@ const LoginComp = () => {
     //     setEmail('email');
     //     setPass('password');
     // };
-
-    const flag = true;
 
     useEffect(() => {
         if (loggedIn) history.push('/proposals');
@@ -56,23 +54,20 @@ const LoginComp = () => {
                     <div className={`${welcome}`}>
                         <h1>welcome back!</h1>
                     </div>
-                    {
-                        !flag &&
-                    (
+                    {renderLinkedin && (
                         <>
-                    <div className={`${linkedinSignIn}`}>
-                        <Link to="/register">
-                            <button className="button">Sign up with LinkedIn</button>
-                        </Link>
-                    </div>
-                    <div className={`${lineContainer}`}>
-                        <hr className={`${hr}`}></hr>
-                        <div className={`${or}`}>OR</div>
-                        <hr className={`${hr}`}></hr>
-                    </div>
-                    </>
-                    )
-                    }
+                            <div className={`${linkedinSignIn}`}>
+                                <Link to="/register">
+                                    <button className="button">Sign in with LinkedIn</button>
+                                </Link>
+                            </div>
+                            <div className={`${lineContainer}`}>
+                                <hr className={`${hr}`}></hr>
+                                <div className={`${or}`}>OR</div>
+                                <hr className={`${hr}`}></hr>
+                            </div>
+                        </>
+                    )}
                     <div className={`${input2}`}>
                         <Input
                             name="email"
