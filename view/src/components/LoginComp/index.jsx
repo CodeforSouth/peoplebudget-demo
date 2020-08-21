@@ -34,6 +34,8 @@ const LoginComp = () => {
     //     setPass('password');
     // };
 
+    const flag = true;
+
     useEffect(() => {
         if (loggedIn) history.push('/proposals');
     }, [loggedIn, history]);
@@ -54,9 +56,13 @@ const LoginComp = () => {
                     <div className={`${welcome}`}>
                         <h1>welcome back!</h1>
                     </div>
+                    {
+                        !flag &&
+                    (
+                        <>
                     <div className={`${linkedinSignIn}`}>
-                        <Link to="/login">
-                            <button className="button">Sign in with LinkedIn</button>
+                        <Link to="/register">
+                            <button className="button">Sign up with LinkedIn</button>
                         </Link>
                     </div>
                     <div className={`${lineContainer}`}>
@@ -64,6 +70,9 @@ const LoginComp = () => {
                         <div className={`${or}`}>OR</div>
                         <hr className={`${hr}`}></hr>
                     </div>
+                    </>
+                    )
+                    }
                     <div className={`${input2}`}>
                         <Input
                             name="email"

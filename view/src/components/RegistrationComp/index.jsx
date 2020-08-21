@@ -57,6 +57,8 @@ const RegistrationComp = () => {
     //     setOccupation('occupation');
     // };
 
+    const flag = true;
+
     useEffect(() => {
         if (loggedIn) history.push('/proposals');
     }, [loggedIn, history]);
@@ -77,6 +79,10 @@ const RegistrationComp = () => {
                     <div className={`${welcome}`}>
                         <h1>welcome!</h1>
                     </div>
+                    {
+                        !flag &&
+                    (
+                        <>
                     <div className={`${linkedinSignIn}`}>
                         <Link to="/register">
                             <button className="button">Sign up with LinkedIn</button>
@@ -87,6 +93,9 @@ const RegistrationComp = () => {
                         <div className={`${or}`}>OR</div>
                         <hr className={`${hr}`}></hr>
                     </div>
+                    </>
+                    )
+                    }
                     <div className={`${inputContainer}`}>
                         <Input
                             name="firstName"
