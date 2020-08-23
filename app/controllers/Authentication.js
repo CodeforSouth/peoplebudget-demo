@@ -16,7 +16,7 @@ const { checkPermissions } = require('../middleware/requiredPermissions');
  * @const
  * @namespace authRouter
  */
-const router = require('express').router();
+const router = require('express').Router();
 const { encode, decode } = require('../helpers/jwt');
 
 /**

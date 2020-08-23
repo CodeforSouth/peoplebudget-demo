@@ -70,7 +70,8 @@ router.post('/', async (req, res, next) => {
             linkedinurl: linkedinurl,
             annualIncome: income,
             occupation: occupation,
-            budgetItem: budgetitem
+            budgetItem: budgetitem,
+            authLevel: 1
         });
         res.header('Location', `api/v1/user/?id=${newUser.id}`);
         res.statusCode = 201;
