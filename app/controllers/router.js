@@ -18,5 +18,7 @@ const { router: Reply, version: ReplyVersion } = require('./reply');
 router.use(`/v${ReplyVersion}/reply`, Reply);
 const { router: securitQ, version: securitQVersion } = require('./securityQuestion');
 router.use(`/v${securitQVersion}/securityquestion`, securitQ);
+const { router: profileP, version: profilePVersion } = require('./profilePicture');
+router.use(`/v${profilePVersion}/profilepicture`, profileP);
 
 module.exports = router;
