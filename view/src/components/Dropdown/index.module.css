@@ -1,0 +1,57 @@
+.container {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px; /* TB RL */
+    padding:  10px 10px 5px 15px; /* TB RL */
+    border: none;
+    border-radius: 0.9em;
+    box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.2); /* X Y Blr Sprd Clr */
+}
+
+@keyframes labelAnimation {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-8px);
+    }
+}
+.label {
+    color: rgb(120, 120, 120, 1);
+    display: block;
+    margin: 0px 0px 0px 0px; /* T R B L */
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.labelUp {
+    color: rgb(0, 0, 0);
+    display: block;
+    margin: 0px 0px 0px 0px; /* T R B L */
+    font-size: 1.2em;
+    font-weight: 400;
+    animation: labelAnimation 0.3s;
+    transform: translateY(-8px);
+}
+
+.input {
+    width: 100%;
+    height: auto;
+    /*margin: 0px 0px 4px 0px; /* T R B L */
+    margin: 0px 0px 0px 0px; /* T R B L */
+    border: none;
+    outline: none;
+    color: rgba(120, 120, 120, 1) /*rgb(238, 150, 35, 1)*/;
+    font-weight: 400;
+    font-size: 1.2em;
+    background-color: rgba(255, 196, 0, 0);
+    caret-color: rgb(120, 120, 120) /*rgb(238, 150, 35, 1)*/;
+}
+
+.input::placeholder {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0px 0px; /* TB RL */
+}

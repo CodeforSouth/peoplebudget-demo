@@ -3,7 +3,6 @@ import style from './index.module.css';
 
 const Input = (props) => {
     const [input, setInput] = useState('');
-    const [focus, setFocus] = useState(false);
 
     const onChangeHandler = (event) => {
         setInput(event.target.value);

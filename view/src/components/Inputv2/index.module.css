@@ -14,7 +14,7 @@
         transform: translateY(0px);
     }
     to {
-        transform: translateY(-25px);
+        transform: translateY(-5px);
     }
 }
 .label {
@@ -29,10 +29,10 @@
     color: rgb(0, 0, 0);
     display: block;
     margin: 0px 0px 0px 0px; /* T R B L */
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 400;
     animation: labelAnimation 0.3s;
-    transform: translateY(-20px);
+    transform: translateY(-5px);
 }
 
 .input {

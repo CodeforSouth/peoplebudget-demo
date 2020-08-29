@@ -56,9 +56,7 @@ const customValidator = (body, params) => {
                         400,
                         `The '${key}' can not be type '${typeof body[key]}'.`
                     );
-                } else {
-                    return false;
-                }
+                } 
                 switch (params[key].type) {
                     case 'alphanumeric':
                         if (!validator.isAlphanumeric(body[key])) {

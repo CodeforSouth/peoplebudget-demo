@@ -3,10 +3,10 @@ import style from './index.module.css';
 
 const Input = (props) => {
     const [input, setInput] = useState('');
-    const [focus, setFocus] = useState(false);
 
     const onChangeHandler = (event) => {
         setInput(event.target.value);
+        props.input(event.target.value)
     };
 
     return (
@@ -23,7 +23,6 @@ const Input = (props) => {
                 id={`${props.name}`}
                 value={input}
                 type={`${props.type}`}
-                // placeholder={props.placeholder}
                 onChange={onChangeHandler}
             ></input>
         </div>

@@ -1,48 +1,100 @@
-.overview {
-    position: relative;
-    background-image: url('../../AirlinesArena.jpg');
+.grid {
+    display: grid;
+    grid-template-columns: 40% 10% 50%;
+    height: 75vh;
+}
+
+.picture {
+    overflow: hidden;
+    grid-column: 2/span 2;
+    grid-row: 1;
+    background: url('../../media/images/AirlinesArena.jpg') no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    /* (img-height / img-width * container-width) */
-    /* (913 / 1616 * 100) */
+    max-height: 75vh;
+    max-width: 75vw;
 }
-.cardPosition {
-    position: absolute;
-    /* transform: translate(-50%, -50%); */
+.card {
+    grid-row: 1;
+    grid-column: 1/span 2;
+    justify-self: end;
+    align-self: center;
+    width: 40vw;
+    height: auto;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.15);
+    background-color: ivory;
+    border-radius: 2em;
+    display: grid;
+    padding: 1em;
+}
+.heading1 {
+    align-self: center;
+    text-align: center;
+}
+.information {
+    text-align: center;
+    font-weight: 500;
+    overflow: hidden;
 }
 
-/* Media Queries: To Control the Size of Components */
-@media screen and (max-width: 350px) {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
     .card {
-        width: 80vw !important;
-        font-size: 3vw;
+        font-size: 0.65em;
     }
     .card h1 {
-        font-size: 4vw;
+        font-size: 1.7em;
     }
 }
-/*If screen size 500x or less use theses sytles*/
-@media screen and (max-width: 500px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
     .card {
-        width: 90vw !important;
-        font-size: 2vw;
+        font-size: 0.65em;
     }
     .card h1 {
-        font-size: 4vw;
+        font-size: 1.75em;
     }
 }
-
-/*If screen size 501px or more use theses sytles*/
-@media screen and (min-width: 501px) {
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
     .card {
-        width: 350px !important;
+        font-size: 1em;
+    }
+    .card h1 {
+        font-size: 2em;
     }
 }
-
-/*If screen size 900px or more use theses sytles*/
-@media screen and (min-width: 900px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
     .card {
-        width: 350px !important;
+        font-size: 1.4em;
+    }
+    .card h1 {
+        font-size: 1.6em;
+    }
+}
+/*Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px) {
+    .card {
+        font-size: 1.3em;
+    }
+    .card h1 {
+        font-size: 1.7em;
+    }
+}
+@media only screen and (min-width: 1900px) {
+    .card {
+        font-size: 1.9em;
+    }
+    .card h1 {
+        font-size: 2em;
+    }
+}
+@media only screen and (min-width: 3800px) {
+    .card {
+        font-size: 3em;
+    }
+    .card h1 {
+        font-size: 2em;
     }
 }

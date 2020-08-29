@@ -6,7 +6,7 @@ const Navbar = (props) => {
     const mapButtons = (options) =>
         options.map((values, index) => <NavButton key={index} {...values} />);
     return (
-        <div className="row" style={{ margin: '0px' }}>
+        <div id='top' className="row" style={{ margin: '0px' }}>
             <div className="col-sm-auto ml-auto">
                 <div className="row ">
                     {mapButtons(props.options ? props.options : [{ text: 'home', link: '/' }])}

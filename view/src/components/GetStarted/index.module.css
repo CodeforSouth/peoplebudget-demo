@@ -1,76 +1,130 @@
-
 .imageContainer {
+    /* background-image: url('../../media/images/miamiMap.png'); */
+    background-image: url('../../media/images/miamiMap.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 60vh;
     overflow: hidden;
+    display: grid;
+    min-height: 600px;
 }
-.card {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    max-width: 365px;
-    min-height: 100% !important;
-    height: 80vh;
-    max-height: 240px !important;
-    top: -30vh !important;
-    
+.wrapper {
+    align-self: center;
+    justify-self: center;
 }
-.card h1 {
-    font-size: 130%;
+.wrapper > div:first-child {
+    border-radius: 2em;
+    background-color: white;
+    display: grid;
+    padding: 1em;
+    margin: 0 3em;
+    min-width: 300px;
 }
-
-/* Media Queries: To Control the Size of Components */
-/* Device: iPhone 6/7/8 */
-/*
-@media screen and (max-width: 375px) {
-    .imageContainer {
-        width: 100vw;
-    }
-    .imageContainer img {
-        height: 100% !important;
-    }
-    .card {
-        width: 80vw !important;
-        top: -16vh !important;
-        font-size: 4vh;
-    }
-    .card h1 {
-        font-size: 2em;
-    }
+.wrapper > div:first-child h1 {
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
 }
-
-@media screen and (min-width: 376px) and (max-width: 3000px) {
-    .imageContainer {
-        height: 60vh;
-        overflow: hidden;
-    }
-    .imageContainer img {
-        position: relative;
-    }
-    .card {
-        width: 25vw !important;
-        height: 50vh !important;
-        top: -30vh !important;
-        font-size: 3vh;
-    }
-    .card h1 {
-        font-size: 2em;
-    }
+.wrapper > div:first-child > div > p {
+    text-align: center;
+}
+.wrapper > div:first-child > div > p > b {
+    padding: 1em;
+    font-size: 1em;
+}
+.text p {
+    size: 1vw;
+    size: 1vh;
+}
+.wrapper > div:first-child > div > hr {
+    width: 100%;
+    border-top: 2px solid #000;
 }
 
-@media screen and (min-width: 3001px) {
-    .imageContainer {
-        height: 50vh;
-        overflow: hidden;
-    }
-    .imageContainer img {
-        height: 100 !important;
-    }
-    .card {
-        width: 25vw !important;
-        top: -25vh !important;
-        font-size: 3em;
-    }
-    .card h1 {
-        font-size: 2em;
+.button {
+    text-align: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .wrapper > div:first-child {
+        width: 95vw;
+        margin: 0 auto;
     }
 }
-*/
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .wrapper > div:first-child {
+        padding: 1.5em;
+    }
+    .wrapper > div:first-child h1 {
+        font-size: 2.5em;
+        text-align: center;
+        font-weight: bold;
+    }
+    .wrapper > div:first-child > div > p > b {
+        padding: 1em;
+        text-align: center;
+        font-size: 0.8em;
+    }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .wrapper > div:first-child {
+        padding: 1.5em;
+    }
+    .wrapper > div:first-child h1 {
+        font-size: 2.5em;
+        text-align: center;
+        font-weight: bold;
+    }
+    .wrapper > div:first-child > div > p > b {
+        padding: 1em;
+        text-align: center;
+        font-size: 0.8em;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .wrapper > div:first-child {
+        padding: 2em;
+        min-width: 100px;
+    }
+    .wrapper > div:first-child h1 {
+        font-size: 3.5em;
+    }
+    .wrapper > div:first-child > div > p > b {
+        padding: 1em;
+        font-size: 1em;
+    }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .wrapper > div:first-child {
+        padding: 2em;
+    }
+    .wrapper > div:first-child h1 {
+        font-size: 4em;
+    }
+    .wrapper > div:first-child > div > p > b {
+        padding: 1em;
+        font-size: 1em;
+    }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 2000px) {
+    .wrapper > div:first-child {
+        padding: 3em;
+    }
+    .wrapper > div:first-child h1 {
+        font-size: 6em;
+    }
+    .wrapper > div:first-child > div > p > b {
+        display: block;
+        padding: 1em;
+        font-size: 2em;
+    }
+    .button button {
+        font-size: 2em!important;
+    }
+}
