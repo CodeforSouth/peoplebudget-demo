@@ -7,6 +7,7 @@ import Profile from '../pages/Profile';
 import MapView from '../pages/MapView';
 import UserRegistration from '../pages/UserRegistration';
 import FAQ from '../pages/FAQ';
+import Dashboard from '../pages/Dashboard';
 
 const RouterComponent = () => {
     return (
@@ -19,6 +20,7 @@ const RouterComponent = () => {
                 <Route path="/proposals" component={MapView} />
                 <Route path="/register" component={UserRegistration} />
                 <Route path="/faq" component={FAQ} />
+                <Route path="/Dashboard" component={Dashboard} />
             </Switch>
         </Router>
     );
