@@ -1,9 +1,13 @@
 import React from 'react';
+import DashboardLogo from '../components/DashboardLogo';
+
 const Dashboard = () => {
     return (
         <>
             <div className="row">
-                <div className="col-1 border-right p-1"></div>
+                <div className="col-1 border-right p-1">
+                    <DashboardLogo/>
+                </div>
                 <div className="col-11 border p-1"></div>
             </div>
             <div className="row bg-light text-secondary">
