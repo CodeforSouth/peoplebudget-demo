@@ -98,6 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }),
             loggedIn: false, //login status
             loginAt: null, // time in MS
+            renderLinkedin: true, //signin linkedin button
             exp: null, // when to try a refresh
             refreshInterval: null,
             lastInteraction: null // captures if the user is clicking on the website

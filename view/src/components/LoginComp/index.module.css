@@ -25,7 +25,7 @@
     .compContainer {
         display: grid;
         margin: 3rem 2rem;
-        grid-template-rows: 3.5rem 2rem 3rem 4fr;
+        grid-template-rows: 3.5rem 2rem 3rem 4fr 100;
         grid-template-columns: 1fr 1fr 7fr 2fr;
         row-gap: 0.8rem;
     }
@@ -117,7 +117,6 @@
 
     .compContainer {
         margin: 4rem 0rem;
-        grid-template-rows: 3.5rem 2rem 3rem 4fr;
         row-gap: 0.7rem;
     }
 
@@ -130,7 +129,7 @@
 @media screen and (min-width: 1200px) {
     .compContainer {
         margin: 5rem 0rem;
-        grid-template-rows: 4.5rem 2rem 3rem 4fr;
+        grid-template-rows: 4.5rem 2rem 3rem 4fr 100;
         row-gap: 0.8rem;
     }
 

@@ -39,7 +39,7 @@ const RegistrationComp = () => {
     // const [pass, setPass] = useState('');
     const {
         // actions: { register },
-        store: { loggedIn }
+        store: { loggedIn, renderLinkedin }
     } = useContext(Context);
 
     // const handleClickEvent = async () => {
@@ -77,16 +77,20 @@ const RegistrationComp = () => {
                     <div className={`${welcome}`}>
                         <h1>welcome!</h1>
                     </div>
-                    <div className={`${linkedinSignIn}`}>
-                        <Link to="/register">
-                            <button className="button">Sign up with LinkedIn</button>
-                        </Link>
-                    </div>
-                    <div className={`${lineContainer}`}>
-                        <hr className={`${hr}`}></hr>
-                        <div className={`${or}`}>OR</div>
-                        <hr className={`${hr}`}></hr>
-                    </div>
+                    {renderLinkedin && (
+                        <>
+                            <div className={`${linkedinSignIn}`}>
+                                <Link to="/register">
+                                    <button className="button">Sign up with LinkedIn</button>
+                                </Link>
+                            </div>
+                            <div className={`${lineContainer}`}>
+                                <hr className={`${hr}`}></hr>
+                                <div className={`${or}`}>OR</div>
+                                <hr className={`${hr}`}></hr>
+                            </div>
+                        </>
+                    )}
                     <div className={`${inputContainer}`}>
                         <Input
                             name="firstName"
