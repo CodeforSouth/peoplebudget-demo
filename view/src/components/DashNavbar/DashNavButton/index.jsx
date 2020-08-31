@@ -1,18 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { links } from './index.module.css';
+import { links, leftspace } from './index.module.css';
 
 const DashNavButton = ({ text, link, color }) => {
     return (
-        <div className={`text-center text-capitalize`}>
-            
+        <div className={`${leftspace}`}>
             <Link className={`${links}`} to={link}>
-            <h6>
-                {text}
-                </h6>
+                <h6>{text}</h6>
             </Link>
-            
-            
         </div>
     );
 };

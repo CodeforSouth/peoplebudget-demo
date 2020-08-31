@@ -1,10 +1,17 @@
+.leftspace:nth-of-type(1) {
+    background: transparent linear-gradient(90deg, rgb(211, 211, 211), rgb(211, 211, 211)) no-repeat
+        0 93%;
+    background-size: 100% 1px;
+    padding-left: 10rem;
+}
+
 .links {
-    padding-top: 1rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-bottom: 8px;
     display: inline-block;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 4px;
     color: gray;
+    padding: 1rem 3rem 0.4rem;
+    text-transform: capitalize;
 }
 
 .links:hover {
@@ -12,9 +19,10 @@
     cursor: pointer;
     /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
     animation-name: linkHover;
-    animation-duration: .25s;
+    animation-duration: 0.25s;
     border-bottom: 4px solid rgb(35, 126, 182);
     text-decoration: none;
+    margin-bottom: 0;
 }
 
 @keyframes linkHover {
@@ -24,5 +32,4 @@
     to {
         /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
     }
-    
 }
