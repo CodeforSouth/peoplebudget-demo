@@ -1,9 +1,7 @@
 .container {
     background-color: #cfd0ce;
     color: #787978;
-}
-.body{
-    padding-left: 70px;
+    width: 100%;
 }
 .body a:hover{
     color: #585858;
@@ -13,8 +11,8 @@
 }
 .hubLink {
     font-weight: 600;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 .budgetLink a{
     font-weight: 800;

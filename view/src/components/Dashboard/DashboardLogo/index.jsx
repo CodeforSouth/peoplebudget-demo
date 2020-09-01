@@ -1,9 +1,9 @@
 import React from 'react';
-import { container } from './index.module.css';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import logo from '../../../media/images/cityOfMiami.png';
 
 function handleClick(event) {
     event.preventDefault();
@@ -12,12 +12,11 @@ function handleClick(event) {
 
 const DashboardLogo = () => {
     return (
-        <div className={`${container}`}>
-            <img
-                src="https://www.miamigov.com/files/assets/public/templateimages/print-header.png"
-                alt="City_of_Miami_Logo"
-            />
-            <div style={{margin: '0 1em'}}>
+        <div className={`row px-4`}>
+            <div className="col-12 py-2">
+                <img src={logo} alt="City_of_Miami_Logo" className="img-fluid w-100" />
+            </div>
+            <div className="col-12 py-2">
                 <Breadcrumbs
                     aria-label="breadcrumb"
                     separator={<NavigateNextIcon fontSize="small" />}
