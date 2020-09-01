@@ -2,6 +2,9 @@
     background: transparent linear-gradient(90deg, rgb(211, 211, 211), rgb(211, 211, 211)) no-repeat
         0 93%;
     background-size: 100% 1px;
+}
+
+.leftSpacer {
     padding-left: 10rem;
 }
 
@@ -17,19 +20,9 @@
 .links:hover {
     color: rgb(35, 126, 182);
     cursor: pointer;
-    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
-    animation-name: linkHover;
-    animation-duration: 0.25s;
     border-bottom: 4px solid rgb(35, 126, 182);
     text-decoration: none;
     margin-bottom: 0;
+    transition: .25s;
 }
 
-@keyframes linkHover {
-    from {
-        /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0); */
-    }
-    to {
-        /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
-    }
-}
